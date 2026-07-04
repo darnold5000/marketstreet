@@ -108,27 +108,39 @@ export default function FeesPage() {
           </div>
 
           <div className="mt-10 overflow-hidden rounded-2xl border border-border bg-white shadow-sm">
-            <div className="overflow-x-auto">
-              <table className="w-full min-w-[480px] text-left text-sm">
-                <thead>
-                  <tr className="border-b border-border bg-cream">
-                    <th className="px-6 py-4 font-semibold text-navy">Portfolio Assets</th>
-                    <th className="px-6 py-4 font-semibold text-navy">Annual % Fee</th>
+            {/* Mobile: stacked cards with rate visible per tier */}
+            <ul className="divide-y divide-border md:hidden">
+              {wealthManagementFeeTiers.map((tier) => (
+                <li
+                  key={tier.range}
+                  className="flex items-start justify-between gap-4 px-5 py-4"
+                >
+                  <p className="text-sm leading-relaxed text-muted">{tier.range}</p>
+                  <p className="shrink-0 text-sm font-semibold text-navy">{tier.rate}</p>
+                </li>
+              ))}
+            </ul>
+
+            {/* Desktop: table */}
+            <table className="hidden w-full text-left text-sm md:table">
+              <thead>
+                <tr className="border-b border-border bg-cream">
+                  <th className="px-6 py-4 font-semibold text-navy">Portfolio Assets</th>
+                  <th className="px-6 py-4 font-semibold text-navy">Annual % Fee</th>
+                </tr>
+              </thead>
+              <tbody>
+                {wealthManagementFeeTiers.map((tier, i) => (
+                  <tr
+                    key={tier.range}
+                    className={i % 2 === 0 ? "bg-white" : "bg-cream/50"}
+                  >
+                    <td className="px-6 py-4 text-muted">{tier.range}</td>
+                    <td className="px-6 py-4 font-semibold text-navy">{tier.rate}</td>
                   </tr>
-                </thead>
-                <tbody>
-                  {wealthManagementFeeTiers.map((tier, i) => (
-                    <tr
-                      key={tier.range}
-                      className={i % 2 === 0 ? "bg-white" : "bg-cream/50"}
-                    >
-                      <td className="px-6 py-4 text-muted">{tier.range}</td>
-                      <td className="px-6 py-4 font-semibold text-navy">{tier.rate}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
+                ))}
+              </tbody>
+            </table>
           </div>
 
           <p className="mt-6 text-sm text-muted">
