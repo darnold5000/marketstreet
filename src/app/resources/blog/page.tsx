@@ -1,5 +1,6 @@
 import { createMetadata } from "@/lib/metadata";
-import { Section, SectionHeader, Card, Breadcrumbs } from "@/components/ui";
+import { Section, Breadcrumbs } from "@/components/ui";
+import { BlogCard } from "@/components/blog/BlogCard";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { breadcrumbSchema, webPageSchema } from "@/lib/schema";
 import { blogPosts } from "@/content/blog";
@@ -30,32 +31,26 @@ export default function BlogPage() {
         ]}
       />
 
-      <Section className="pt-16">
+      <Section className="pt-16 pb-8">
         <Breadcrumbs
           items={[
             { label: "Resources", href: "/resources/blog" },
             { label: "Blog" },
           ]}
         />
-        <SectionHeader
-          eyebrow="Resources"
-          title="Insights from our advisors"
-          description="Expert guidance on financial planning, retirement, and building wealth — written by the professionals who live it every day."
-        />
+        <div className="mt-8 max-w-2xl">
+          <p className="text-sm font-semibold tracking-widest text-gold uppercase">Insights</p>
+          <h1 className="mt-3 font-display text-4xl text-navy md:text-5xl">From our advisors</h1>
+          <p className="mt-4 text-lg text-muted">
+            Expert guidance on planning, retirement, and building wealth.
+          </p>
+        </div>
+      </Section>
 
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {sorted.map((post) => (
-            <Card key={post.slug} href={`/resources/blog/${post.slug}`}>
-              <p className="text-xs font-semibold tracking-wider text-gold uppercase">
-                {post.category}
-              </p>
-              <h2 className="mt-2 font-serif text-xl text-navy">{post.title}</h2>
-              <p className="mt-3 text-sm leading-relaxed text-muted">{post.excerpt}</p>
-              <div className="mt-4 flex items-center justify-between text-xs text-muted">
-                <span>{post.author}</span>
-                <span>{post.readTime}</span>
-              </div>
-            </Card>
+      <Section className="pt-0 pb-24">
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {sorted.map((post, i) => (
+            <BlogCard key={post.slug} post={post} index={i} />
           ))}
         </div>
       </Section>

@@ -1,33 +1,31 @@
 import {
   Hero,
-  TrustIndicators,
-  ValueProps,
-  OfficeShowcase,
+  TrustStats,
+  StoryStatement,
+  StoryPhoto,
+  CoreBenefits,
   ServicesOverview,
-  WhoWeHelp,
   OurProcess,
-  FirstMeetingPreview,
   MeetAdvisors,
   EducationalResources,
   LocationsPreview,
-  TrustCTA,
+  FinalCTA,
 } from "@/components/home/sections";
 
 export default function HomePage() {
   return (
     <>
       <Hero />
-      <TrustIndicators />
-      <ValueProps />
-      <OfficeShowcase />
+      <TrustStats />
+      <StoryStatement />
+      <StoryPhoto />
+      <CoreBenefits />
       <ServicesOverview />
-      <WhoWeHelp />
       <OurProcess />
-      <FirstMeetingPreview />
       <MeetAdvisors />
       <EducationalResources />
       <LocationsPreview />
-      <TrustCTA />
+      <FinalCTA />
     </>
   );
 }

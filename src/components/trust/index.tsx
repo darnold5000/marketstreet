@@ -54,16 +54,23 @@ export function AssociationBadges() {
 export function FirstMeetingTimeline() {
   return (
     <div className="relative">
-      <div className="absolute top-0 left-6 hidden h-full w-px bg-border md:block" aria-hidden="true" />
+      <div
+        className="absolute top-0 left-6 hidden h-full w-px origin-top bg-border md:block animate-draw-line"
+        aria-hidden="true"
+      />
       <div className="space-y-8">
-        {firstMeetingSteps.map((step) => (
-          <div key={step.step} className="relative flex gap-6 md:gap-8">
+        {firstMeetingSteps.map((step, i) => (
+          <div
+            key={step.step}
+            className="relative flex gap-6 md:gap-8 animate-fade-up"
+            style={{ animationDelay: `${i * 120}ms` }}
+          >
             <div className="relative z-10 flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-navy text-sm font-bold text-white">
               {step.step}
             </div>
             <div className="pb-2">
               <div className="flex flex-wrap items-baseline gap-3">
-                <h3 className="font-serif text-xl text-navy">{step.title}</h3>
+                <h3 className="font-display text-xl text-navy">{step.title}</h3>
                 <span className="text-xs font-medium text-gold">{step.duration}</span>
               </div>
               <p className="mt-2 text-sm leading-relaxed text-muted">

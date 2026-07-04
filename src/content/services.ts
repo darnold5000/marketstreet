@@ -6,8 +6,11 @@ export interface ServiceFAQ {
 export interface Service {
   slug: string;
   title: string;
+  icon: string;
   shortDescription: string;
+  whatItIs: string;
   description: string;
+  whoItsFor: string[];
   heroImage?: string;
   faqs: ServiceFAQ[];
   benefits: string[];
@@ -17,10 +20,18 @@ export const services: Service[] = [
   {
     slug: "wealth-management",
     title: "Wealth Management",
+    icon: "chart",
     shortDescription:
-      "A fulfilling life today and financial security for tomorrow — we help with both.",
+      "Live well today. Plan confidently for tomorrow.",
+    whatItIs:
+      "A coordinated approach to your entire financial life — investments, taxes, estate, and ongoing planning in one relationship.",
     description:
       "Our wealth management strategy starts with getting to know you, your family, and your unique financial journey. We help you make the most of your current assets while planning confidently for your future — without sacrificing one for the other.",
+    whoItsFor: [
+      "Mid-career professionals with growing assets",
+      "Families balancing lifestyle and long-term goals",
+      "Pre-retirees preparing for the next chapter",
+    ],
     benefits: [
       "Personalized investment strategy aligned with your goals",
       "Continuous portfolio monitoring and rebalancing",
@@ -59,10 +70,18 @@ export const services: Service[] = [
   {
     slug: "retirement-planning",
     title: "Retirement Planning",
+    icon: "calendar",
     shortDescription:
-      "Confident retirement planning backed by clear advice and ongoing support.",
+      "Turn retirement goals into a clear, actionable plan.",
+    whatItIs:
+      "Strategic planning for Social Security, healthcare, income, and the lifestyle you want in retirement.",
     description:
       "Retirement planning at Market Street goes beyond saving — we help you optimize Social Security, navigate Medicare and healthcare costs, create sustainable income strategies, and plan for the lifestyle you envision.",
+    whoItsFor: [
+      "Pre-retirees within 10 years of retirement",
+      "Recent retirees managing distributions",
+      "Couples aligning on retirement timing",
+    ],
     benefits: [
       "Social Security optimization strategies",
       "Medicare and healthcare cost planning",
@@ -91,10 +110,18 @@ export const services: Service[] = [
   {
     slug: "business-retirement-plans",
     title: "Business Retirement Plans",
+    icon: "building",
     shortDescription:
-      "Customized retirement plans that serve as compelling employee benefits.",
+      "Retirement plans that attract and retain great people.",
+    whatItIs:
+      "Custom 401(k) and qualified plan design for business owners who want strong benefits without the complexity.",
     description:
       "As a business owner, you're the expert in your business. At Market Street, we have expertise in business retirement plans. We work together to craft well-designed, customized plans that are part of a compelling benefits package for your team.",
+    whoItsFor: [
+      "Small business owners",
+      "Growing companies adding benefits",
+      "Owners optimizing their own retirement",
+    ],
     benefits: [
       "401(k) plan design and administration guidance",
       "Employee benefit package optimization",
@@ -118,10 +145,18 @@ export const services: Service[] = [
   {
     slug: "foundations",
     title: "Foundations",
+    icon: "seedling",
     shortDescription:
-      "A clear financial path for ambitious young professionals.",
+      "Start strong. Build habits that compound.",
+    whatItIs:
+      "Approachable financial planning for young professionals building their first real wealth strategy.",
     description:
       "Are you an ambitious young professional with a big vision for your future? Market Street's Foundations program helps you forge the path to a strong financial future. Financial planning can be intimidating — that's why we keep it simple with a plan you can understand and trust.",
+    whoItsFor: [
+      "Young professionals in their 20s and 30s",
+      "Dual-income households getting started",
+      "First-time investors seeking guidance",
+    ],
     benefits: [
       "Cash flow management and budgeting",
       "Retirement savings strategy",
@@ -145,10 +180,18 @@ export const services: Service[] = [
   {
     slug: "investment-management",
     title: "Investment Management",
+    icon: "trending",
     shortDescription:
-      "Disciplined, fee-only investment management aligned with your financial plan.",
+      "Evidence-based portfolios. No commissions. Ever.",
+    whatItIs:
+      "Disciplined, fee-only portfolio management integrated with your complete financial plan.",
     description:
       "Our investment management approach is integrated with your comprehensive financial plan. With continuous fund monitoring and a fee-only structure, you can feel confident your advisors are working exclusively for you and your best interests.",
+    whoItsFor: [
+      "Investors seeking a coordinated strategy",
+      "Clients with assets across multiple accounts",
+      "Anyone tired of commission-driven advice",
+    ],
     benefits: [
       "Evidence-based portfolio construction",
       "Continuous monitoring and rebalancing",

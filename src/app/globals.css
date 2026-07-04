@@ -22,7 +22,7 @@
   --color-cream: var(--cream);
   --color-muted: var(--muted);
   --color-border: var(--border);
-  --font-sans: var(--font-dm-sans);
+  --font-sans: var(--font-inter);
   --font-serif: var(--font-instrument-serif);
 }
 
@@ -33,24 +33,31 @@ html {
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-dm-sans), system-ui, sans-serif;
+  font-family: var(--font-inter), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
 }
 
 ::selection {
   background: color-mix(in srgb, var(--gold) 30%, transparent);
 }
 
+/* Typography scale */
+.font-display {
+  font-family: var(--font-instrument-serif), Georgia, serif;
+  letter-spacing: -0.02em;
+}
+
 .prose-content h2 {
   font-family: var(--font-instrument-serif), Georgia, serif;
   font-size: 1.875rem;
-  line-height: 1.2;
+  line-height: 1.15;
   color: var(--navy);
   margin-top: 2.5rem;
   margin-bottom: 1rem;
 }
 
 .prose-content h3 {
-  font-size: 1.25rem;
+  font-size: 1.125rem;
   font-weight: 600;
   color: var(--navy);
   margin-top: 1.5rem;
@@ -59,7 +66,7 @@ body {
 
 .prose-content p {
   margin-bottom: 1.25rem;
-  line-height: 1.75;
+  line-height: 1.7;
   color: #374151;
 }
 
@@ -71,14 +78,15 @@ body {
 
 .prose-content li {
   margin-bottom: 0.5rem;
-  line-height: 1.75;
+  line-height: 1.7;
   color: #374151;
 }
 
+/* Animations */
 @keyframes fade-up {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(24px);
   }
   to {
     opacity: 1;
@@ -86,16 +94,54 @@ body {
   }
 }
 
+@keyframes draw-line {
+  from {
+    transform: scaleY(0);
+  }
+  to {
+    transform: scaleY(1);
+  }
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .animate-fade-up {
     opacity: 0;
-    animation: fade-up 0.7s ease-out forwards;
+    animation: fade-up 0.65s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+
+  .animate-draw-line {
+    transform-origin: top;
+    animation: draw-line 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+
+  .hover-lift {
+    transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+      box-shadow 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+      border-color 0.3s ease;
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px -12px rgba(15, 39, 68, 0.12);
+  }
+
+  .img-zoom {
+    transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .group:hover .img-zoom {
+    transform: scale(1.05);
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .animate-fade-up {
+  .animate-fade-up,
+  .animate-draw-line {
     animation: none;
     opacity: 1;
+  }
+
+  .hover-lift:hover {
+    transform: none;
   }
 }

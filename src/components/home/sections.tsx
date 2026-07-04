@@ -1,7 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Button, Section, SectionHeader, Card } from "@/components/ui";
-import { TrustBadgeBar, FirstMeetingTimeline, TrustCTA } from "@/components/trust";
+import { Button, Section } from "@/components/ui";
+import { AnimatedCounter } from "@/components/ui/AnimatedCounter";
+import { BlogCard } from "@/components/blog/BlogCard";
+import { Icon, IconCircle, type IconName } from "@/components/icons";
 import { TeamPhoto } from "@/components/team/TeamPhoto";
 import { siteConfig } from "@/content/site";
 import { services } from "@/content/services";
@@ -9,44 +11,65 @@ import { getFeaturedAdvisors } from "@/content/team";
 import { getRecentPosts } from "@/content/blog";
 import { locations } from "@/content/locations";
 
+const trustPills: { icon: IconName; label: string }[] = [
+  { icon: "dollar", label: "Fee-Only" },
+  { icon: "shield", label: "Fiduciary" },
+  { icon: "award", label: "CFP®" },
+  { icon: "calendar", label: "25+ Years" },
+];
+
+const coreBenefits = [
+  {
+    icon: "heart" as IconName,
+    title: "Personal relationships",
+    text: "We know your family, goals, and priorities — not just your portfolio.",
+  },
+  {
+    icon: "shield" as IconName,
+    title: "Zero conflicts",
+    text: "Fee-only and fiduciary. We never sell products or earn commissions.",
+  },
+  {
+    icon: "chart" as IconName,
+    title: "Clear action plans",
+    text: "Simple, actionable strategies you can understand and trust.",
+  },
+];
+
 export function Hero() {
   return (
-    <section className="relative min-h-[85vh] overflow-hidden bg-navy">
+    <section className="relative min-h-[90vh] overflow-hidden bg-navy">
       <Image
         src="/images/hero-office.jpg"
-        alt="Market Street Wealth Management office in Indianapolis, Indiana"
+        alt="Market Street Wealth Management office"
         fill
         priority
-        className="object-cover opacity-30"
+        className="object-cover opacity-25 img-zoom"
         sizes="100vw"
       />
-      <div className="absolute inset-0 bg-gradient-to-r from-navy via-navy/90 to-navy/60" />
-      <div className="relative mx-auto flex min-h-[85vh] max-w-7xl items-center px-6 py-24 lg:px-8">
-        <div className="max-w-2xl animate-fade-up">
-          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-gold/30 bg-white/5 px-4 py-1.5 backdrop-blur-sm">
-            <span className="h-2 w-2 rounded-full bg-gold" />
-            <span className="text-sm font-medium text-gold-light">
-              Fee-Only · Fiduciary · Since 2001
-            </span>
+      <div className="absolute inset-0 bg-gradient-to-t from-navy via-navy/85 to-navy/70" />
+      <div className="relative mx-auto flex min-h-[90vh] max-w-7xl flex-col justify-end px-6 pb-20 pt-32 lg:px-8">
+        <div className="max-w-3xl animate-fade-up">
+          <div className="mb-8 flex flex-wrap gap-3">
+            {trustPills.map((pill) => (
+              <span
+                key={pill.label}
+                className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-1.5 text-sm text-white/90 backdrop-blur-sm"
+              >
+                <Icon name={pill.icon} size={15} className="text-gold" />
+                {pill.label}
+              </span>
+            ))}
           </div>
-          <h1 className="font-serif text-4xl leading-[1.08] text-white md:text-5xl lg:text-6xl">
-            Your money should work as hard as you do.
+          <h1 className="font-display text-5xl leading-[1.05] text-white md:text-6xl lg:text-7xl">
+            Wealth management built on trust.
           </h1>
-          <p className="mt-6 text-lg leading-relaxed text-white/80 md:text-xl">
-            Market Street delivers clear, actionable financial planning for Indiana
-            professionals and families — without the complexity, conflicts, or
-            commission-driven advice.
+          <p className="mt-6 max-w-xl text-lg text-white/75 md:text-xl">
+            Fee-only, fiduciary financial planning for Indiana professionals and families.
           </p>
-          <div className="mt-10 flex flex-col gap-4 sm:flex-row">
+          <div className="mt-10">
             <Button href="/schedule" variant="secondary" trackEvent="hero_schedule">
               Schedule Free Consultation
-            </Button>
-            <Button
-              href="/answers/what-is-a-fiduciary"
-              variant="outline"
-              className="border-white/30 text-white hover:bg-white hover:text-navy"
-            >
-              Why Fee-Only Matters
             </Button>
           </div>
         </div>
@@ -55,57 +78,85 @@ export function Hero() {
   );
 }
 
-export function TrustIndicators() {
+export function TrustStats() {
   return (
-    <>
-      <TrustBadgeBar />
-      <Section className="py-12 md:py-16">
-        <div className="grid grid-cols-2 gap-8 md:grid-cols-5">
-          {siteConfig.trustIndicators.map((item, i) => (
-            <div
-              key={item.label}
-              className="text-center animate-fade-up"
-              style={{ animationDelay: `${i * 100}ms` }}
-            >
-              <p className="font-serif text-3xl text-navy md:text-4xl">{item.value}</p>
-              <p className="mt-1 text-sm text-muted">{item.label}</p>
-            </div>
-          ))}
-        </div>
-      </Section>
-    </>
+    <section className="border-b border-border bg-white py-14">
+      <div className="mx-auto grid max-w-7xl grid-cols-2 gap-10 px-6 md:grid-cols-4 lg:px-8">
+        {[
+          { value: 25, suffix: "+", label: "Years in business" },
+          { value: 100, suffix: "%", label: "Fee-only & fiduciary" },
+          { value: 2, suffix: "", label: "Indiana offices" },
+          { value: 12, suffix: "+", label: "Team members" },
+        ].map((stat, i) => (
+          <div
+            key={stat.label}
+            className="text-center animate-fade-up"
+            style={{ animationDelay: `${i * 100}ms` }}
+          >
+            <p className="font-display text-4xl text-navy md:text-5xl">
+              <AnimatedCounter value={stat.value} suffix={stat.suffix} />
+            </p>
+            <p className="mt-2 text-sm text-muted">{stat.label}</p>
+          </div>
+        ))}
+      </div>
+    </section>
   );
 }
 
-export function OfficeShowcase() {
+export function StoryStatement() {
   return (
-    <Section background="cream">
-      <div className="grid items-center gap-12 lg:grid-cols-2">
-        <div className="relative aspect-[4/3] overflow-hidden rounded-2xl">
-          <Image
-            src="/images/team-advising.jpg"
-            alt="Market Street advisors meeting with clients"
-            fill
-            className="object-cover"
-            sizes="(max-width: 1024px) 100vw, 50vw"
-          />
-        </div>
-        <div>
-          <SectionHeader
-            eyebrow="Indiana Roots, Nationwide Reach"
-            title="A team that knows you — not just your portfolio"
-            description="Founded in Indianapolis in 2001, Market Street has grown into one of Indiana's most trusted independent advisory firms. We serve clients locally and nationwide with the same personal, fiduciary commitment."
-          />
-          <Link
-            href="/about"
-            className="inline-flex items-center text-sm font-semibold text-gold hover:text-navy"
+    <Section className="py-24 md:py-32">
+      <div className="mx-auto max-w-4xl text-center">
+        <p className="text-sm font-semibold tracking-widest text-gold uppercase">
+          The Market Street Difference
+        </p>
+        <h2 className="mt-4 font-display text-4xl leading-tight text-navy md:text-5xl lg:text-6xl">
+          Financial planning shouldn&apos;t feel complicated.
+        </h2>
+        <p className="mx-auto mt-6 max-w-2xl text-lg text-muted">
+          We simplify it — with clear advice, honest fees, and advisors who actually know you.
+        </p>
+      </div>
+    </Section>
+  );
+}
+
+export function StoryPhoto() {
+  return (
+    <section className="relative h-[50vh] min-h-[360px] overflow-hidden md:h-[60vh]">
+      <Image
+        src="/images/team-advising.jpg"
+        alt="Market Street advisors with clients"
+        fill
+        className="object-cover img-zoom"
+        sizes="100vw"
+      />
+      <div className="absolute inset-0 bg-navy/20" />
+    </section>
+  );
+}
+
+export function CoreBenefits() {
+  return (
+    <Section background="cream" className="py-20 md:py-24">
+      <div className="grid gap-6 md:grid-cols-3">
+        {coreBenefits.map((item, i) => (
+          <div
+            key={item.title}
+            className="hover-lift rounded-2xl border border-border bg-white p-8 animate-fade-up"
+            style={{ animationDelay: `${i * 100}ms` }}
           >
-            Learn our story
-            <svg className="ml-1 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-            </svg>
-          </Link>
-        </div>
+            <IconCircle name={item.icon} />
+            <h3 className="mt-5 font-display text-2xl text-navy">{item.title}</h3>
+            <p className="mt-3 text-sm leading-relaxed text-muted">{item.text}</p>
+          </div>
+        ))}
+      </div>
+      <div className="mt-12 text-center">
+        <Button href="/about" variant="outline">
+          Why Market Street
+        </Button>
       </div>
     </Section>
   );
@@ -113,51 +164,27 @@ export function OfficeShowcase() {
 
 export function ServicesOverview() {
   return (
-    <Section>
-      <SectionHeader
-        eyebrow="Our Services"
-        title="Comprehensive financial planning for every stage of life"
-        description="From building your foundation to managing complex wealth, we provide personalized guidance backed by a fee-only, fiduciary commitment."
-        centered
-      />
-      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-        {services.map((service) => (
-          <Card key={service.slug} href={`/services/${service.slug}`}>
-            <h3 className="font-serif text-xl text-navy">{service.title}</h3>
-            <p className="mt-3 text-sm leading-relaxed text-muted">
-              {service.shortDescription}
-            </p>
-            <span className="mt-4 inline-flex items-center text-sm font-semibold text-gold">
-              Learn more
-              <svg className="ml-1 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-              </svg>
-            </span>
-          </Card>
-        ))}
+    <Section className="py-20 md:py-28">
+      <div className="mb-14 text-center">
+        <p className="text-sm font-semibold tracking-widest text-gold uppercase">Services</p>
+        <h2 className="mt-3 font-display text-4xl text-navy md:text-5xl">How we help</h2>
       </div>
-    </Section>
-  );
-}
-
-export function WhoWeHelp() {
-  return (
-    <Section background="cream">
-      <SectionHeader
-        eyebrow="Who We Help"
-        title="A financial firm for young and seasoned professionals, alike"
-        description="Whether you're building your career or enjoying retirement, Market Street provides the guidance you need at every stage."
-        centered
-      />
-      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {siteConfig.whoWeHelp.map((item) => (
-          <div
-            key={item.title}
-            className="rounded-2xl border border-border bg-white p-8 transition-all hover:border-gold/30 hover:shadow-md"
+      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {services.map((service, i) => (
+          <Link
+            key={service.slug}
+            href={`/services/${service.slug}`}
+            className="group hover-lift flex items-start gap-4 rounded-2xl border border-border bg-white p-6 animate-fade-up"
+            style={{ animationDelay: `${i * 60}ms` }}
           >
-            <h3 className="font-serif text-xl text-navy">{item.title}</h3>
-            <p className="mt-3 text-sm leading-relaxed text-muted">{item.description}</p>
-          </div>
+            <IconCircle name={service.icon as IconName} />
+            <div>
+              <h3 className="font-display text-xl text-navy group-hover:text-gold transition-colors">
+                {service.title}
+              </h3>
+              <p className="mt-1.5 text-sm text-muted">{service.shortDescription}</p>
+            </div>
+          </Link>
         ))}
       </div>
     </Section>
@@ -166,50 +193,25 @@ export function WhoWeHelp() {
 
 export function OurProcess() {
   return (
-    <Section>
-      <SectionHeader
-        eyebrow="Our Process"
-        title="A clear path from conversation to confidence"
-        centered
-      />
-      <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+    <Section background="cream" className="py-20 md:py-28">
+      <div className="mb-14 text-center">
+        <p className="text-sm font-semibold tracking-widest text-gold uppercase">Process</p>
+        <h2 className="mt-3 font-display text-4xl text-navy md:text-5xl">Four steps to clarity</h2>
+      </div>
+      <div className="grid gap-8 md:grid-cols-4">
         {siteConfig.process.map((step, i) => (
           <div
             key={step.step}
-            className="animate-fade-up"
-            style={{ animationDelay: `${i * 150}ms` }}
+            className="relative text-center animate-fade-up"
+            style={{ animationDelay: `${i * 120}ms` }}
           >
-            <span className="font-serif text-5xl text-gold/30">{step.step}</span>
-            <h3 className="mt-2 font-serif text-xl text-navy">{step.title}</h3>
-            <p className="mt-3 text-sm leading-relaxed text-muted">{step.description}</p>
+            <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-navy font-display text-xl text-white">
+              {step.step}
+            </div>
+            <h3 className="mt-5 font-display text-xl text-navy">{step.title}</h3>
+            <p className="mt-2 text-sm text-muted">{step.description}</p>
           </div>
         ))}
-      </div>
-      <div className="mt-12 text-center">
-        <Button href="/schedule" variant="outline" trackEvent="process_schedule">
-          Start with a Free Consultation
-        </Button>
-      </div>
-    </Section>
-  );
-}
-
-export function FirstMeetingPreview() {
-  return (
-    <Section background="cream">
-      <SectionHeader
-        eyebrow="What to Expect"
-        title="Your first meeting is complimentary — and zero pressure"
-        description="Here's exactly what happens when you sit down with a Market Street advisor."
-        centered
-      />
-      <div className="mx-auto max-w-2xl">
-        <FirstMeetingTimeline />
-      </div>
-      <div className="mt-10 text-center">
-        <Button href="/schedule" variant="primary" trackEvent="first_meeting_schedule">
-          Schedule Your Free Meeting
-        </Button>
       </div>
     </Section>
   );
@@ -219,20 +221,26 @@ export function MeetAdvisors() {
   const advisors = getFeaturedAdvisors().slice(0, 4);
 
   return (
-    <Section>
-      <SectionHeader
-        eyebrow="Meet the Advisors"
-        title="Certified experts who genuinely care"
-        description="CFP® professionals, CPAs, and qualified financial experts — with the personality to match."
-        centered
-      />
+    <Section className="py-20 md:py-28">
+      <div className="mb-14 flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">
+        <div>
+          <p className="text-sm font-semibold tracking-widest text-gold uppercase">Your Team</p>
+          <h2 className="mt-3 font-display text-4xl text-navy md:text-5xl">Meet the advisors</h2>
+        </div>
+        <Button href="/team" variant="outline">View full team</Button>
+      </div>
       <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-        {advisors.map((advisor) => (
-          <Link key={advisor.slug} href="/team" className="group text-center">
-            <div className="mx-auto mb-4 transition-transform group-hover:scale-105">
+        {advisors.map((advisor, i) => (
+          <Link
+            key={advisor.slug}
+            href="/team"
+            className="group text-center animate-fade-up"
+            style={{ animationDelay: `${i * 80}ms` }}
+          >
+            <div className="mx-auto transition-transform duration-300 group-hover:scale-105">
               <TeamPhoto member={advisor} size="lg" className="mx-auto" />
             </div>
-            <h3 className="font-serif text-lg text-navy">
+            <h3 className="mt-4 font-display text-lg text-navy">
               {advisor.name}
               {advisor.credentials && (
                 <span className="text-gold">, {advisor.credentials}</span>
@@ -242,9 +250,6 @@ export function MeetAdvisors() {
           </Link>
         ))}
       </div>
-      <div className="mt-12 text-center">
-        <Button href="/team" variant="outline">Meet Our Full Team</Button>
-      </div>
     </Section>
   );
 }
@@ -253,28 +258,18 @@ export function EducationalResources() {
   const posts = getRecentPosts(3);
 
   return (
-    <Section background="cream">
-      <SectionHeader
-        eyebrow="From Our Advisors"
-        title="Insights you can trust"
-        description="Expert guidance written by the professionals who live it every day — not ghostwriters."
-        centered
-      />
-      <div className="grid gap-6 md:grid-cols-3">
-        {posts.map((post) => (
-          <Card key={post.slug} href={`/resources/blog/${post.slug}`}>
-            <p className="text-xs font-semibold tracking-wider text-gold uppercase">
-              {post.category}
-            </p>
-            <h3 className="mt-2 font-serif text-xl text-navy line-clamp-2">{post.title}</h3>
-            <p className="mt-3 text-sm leading-relaxed text-muted line-clamp-3">{post.excerpt}</p>
-            <p className="mt-4 text-xs text-muted">{post.readTime}</p>
-          </Card>
-        ))}
+    <Section background="cream" className="py-20 md:py-28">
+      <div className="mb-14 flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">
+        <div>
+          <p className="text-sm font-semibold tracking-widest text-gold uppercase">Insights</p>
+          <h2 className="mt-3 font-display text-4xl text-navy md:text-5xl">From our advisors</h2>
+        </div>
+        <Button href="/resources/blog" variant="outline">All articles</Button>
       </div>
-      <div className="mt-12 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-        <Button href="/resources/blog" variant="outline">View All Articles</Button>
-        <Button href="/answers/what-is-a-fiduciary" variant="outline">Financial Planning Answers</Button>
+      <div className="grid gap-6 md:grid-cols-3">
+        {posts.map((post, i) => (
+          <BlogCard key={post.slug} post={post} index={i} />
+        ))}
       </div>
     </Section>
   );
@@ -282,88 +277,30 @@ export function EducationalResources() {
 
 export function LocationsPreview() {
   return (
-    <Section>
-      <SectionHeader
-        eyebrow="Our Locations"
-        title="Local offices in Indiana, clients nationwide"
-        centered
-      />
-      <div className="grid gap-8 lg:grid-cols-2">
-        <div className="relative aspect-video overflow-hidden rounded-2xl lg:aspect-auto lg:min-h-[320px]">
-          <Image
-            src="/images/team-group.jpg"
-            alt="Market Street Wealth Management team"
-            fill
-            className="object-cover"
-            sizes="(max-width: 1024px) 100vw, 50vw"
-          />
-        </div>
-        <div className="space-y-6">
-          {locations.map((loc) => (
-            <div key={loc.id} className="rounded-2xl border border-border p-8">
-              <h3 className="font-serif text-xl text-navy">{loc.name}</h3>
-              <address className="mt-3 not-italic text-muted">
-                <p>{loc.address}</p>
-                <p>{loc.city}, {loc.state} {loc.zip}</p>
-              </address>
+    <Section className="py-20 md:py-28">
+      <div className="mb-14 text-center">
+        <p className="text-sm font-semibold tracking-widest text-gold uppercase">Locations</p>
+        <h2 className="mt-3 font-display text-4xl text-navy md:text-5xl">Indiana offices. Nationwide clients.</h2>
+      </div>
+      <div className="grid gap-6 md:grid-cols-2">
+        {locations.map((loc) => (
+          <div
+            key={loc.id}
+            className="hover-lift flex gap-5 rounded-2xl border border-border bg-white p-8"
+          >
+            <IconCircle name="map-pin" className="bg-navy/5 text-navy" />
+            <div>
+              <h3 className="font-display text-xl text-navy">{loc.name}</h3>
+              <p className="mt-2 text-sm text-muted">
+                {loc.address}, {loc.city}, {loc.state}
+              </p>
               <a
                 href={`tel:${loc.phone.replace(/[^\d+]/g, "")}`}
-                className="mt-2 inline-block font-medium text-navy hover:text-gold"
+                className="mt-3 inline-block font-medium text-navy hover:text-gold"
                 data-track="phone_click"
               >
                 {loc.phone}
               </a>
-              <p className="mt-1 text-sm text-muted">{loc.hours}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-    </Section>
-  );
-}
-
-export function ValueProps() {
-  const props = [
-    {
-      title: "Comprehensive Wealth Management",
-      description:
-        "Optimize your current assets while planning for the future — you don't need to sacrifice one for the other.",
-    },
-    {
-      title: "Mutual Commitment",
-      description:
-        "Personalized advice backed by mutually committed client-advisor relationships and open, honest communication.",
-    },
-    {
-      title: "Pros On Your Team",
-      description:
-        "Fee-only structure and continuous fund monitoring — your advisors work exclusively for you.",
-    },
-    {
-      title: "Education and Empowerment",
-      description:
-        "Make informed, empowered decisions with our focus on client education and knowledge-sharing.",
-    },
-  ];
-
-  return (
-    <Section>
-      <SectionHeader
-        eyebrow="The Market Street Difference"
-        title="More than a traditional wealth management firm"
-        centered
-      />
-      <div className="grid gap-8 md:grid-cols-2">
-        {props.map((item) => (
-          <div key={item.title} className="flex gap-5">
-            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-gold/10 text-gold">
-              <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-              </svg>
-            </div>
-            <div>
-              <h3 className="font-serif text-xl text-navy">{item.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-muted">{item.description}</p>
             </div>
           </div>
         ))}
@@ -372,4 +309,22 @@ export function ValueProps() {
   );
 }
 
-export { TrustCTA };
+export function FinalCTA() {
+  return (
+    <section className="bg-navy py-24 md:py-32">
+      <div className="mx-auto max-w-3xl px-6 text-center lg:px-8">
+        <h2 className="font-display text-4xl text-white md:text-5xl">
+          Ready for a clearer financial future?
+        </h2>
+        <p className="mt-5 text-lg text-white/70">
+          Complimentary. No obligation. Just an honest conversation.
+        </p>
+        <div className="mt-10">
+          <Button href="/schedule" variant="secondary" trackEvent="cta_schedule">
+            Schedule Free Consultation
+          </Button>
+        </div>
+      </div>
+    </section>
+  );
+}

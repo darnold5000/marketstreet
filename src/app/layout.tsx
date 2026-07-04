@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Instrument_Serif, DM_Sans } from "next/font/google";
+import { Instrument_Serif, Inter } from "next/font/google";
 import { Header, Footer } from "@/components/layout/HeaderFooter";
 import { Analytics } from "@/components/analytics/Analytics";
 import { JsonLd } from "@/components/seo/JsonLd";
@@ -15,9 +15,9 @@ const instrumentSerif = Instrument_Serif({
   display: "swap",
 });
 
-const dmSans = DM_Sans({
+const inter = Inter({
   subsets: ["latin"],
-  variable: "--font-dm-sans",
+  variable: "--font-inter",
   display: "swap",
 });
 
@@ -35,7 +35,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${instrumentSerif.variable} ${dmSans.variable} h-full scroll-smooth antialiased`}
+      className={`${instrumentSerif.variable} ${inter.variable} h-full scroll-smooth antialiased`}
     >
       <head>
         <JsonLd data={[organizationSchema(), ...localBusinessSchema()]} />
