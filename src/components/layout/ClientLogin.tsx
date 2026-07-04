@@ -7,18 +7,21 @@ function ExternalLoginLink({
   icon,
   className = "",
   onDark = false,
+  onClick,
 }: {
   label: string;
   href: string;
   icon: IconName;
   className?: string;
   onDark?: boolean;
+  onClick?: () => void;
 }) {
   return (
     <a
       href={href}
       target="_blank"
       rel="noopener noreferrer"
+      onClick={onClick}
       className={`flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold ${
         onDark
           ? "text-white/70 hover:bg-white/10 hover:text-white"
@@ -61,7 +64,7 @@ export function ClientLoginDropdown() {
   );
 }
 
-export function ClientLoginMobileSection() {
+export function ClientLoginMobileSection({ onLinkClick }: { onLinkClick?: () => void }) {
   return (
     <details className="border-t border-border">
       <summary className="flex cursor-pointer list-none items-center justify-between px-6 py-3 text-sm font-medium text-navy [&::-webkit-details-marker]:hidden">
@@ -75,6 +78,7 @@ export function ClientLoginMobileSection() {
             label={link.label}
             href={link.href}
             icon={link.icon as IconName}
+            onClick={onLinkClick}
           />
         ))}
       </div>

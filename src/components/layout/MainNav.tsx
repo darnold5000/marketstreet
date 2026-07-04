@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Icon } from "@/components/icons";
@@ -140,13 +140,22 @@ export function DesktopNav() {
   );
 }
 
-function MobileNavSection({ item, pathname }: { item: NavItem; pathname: string }) {
+function MobileNavSection({
+  item,
+  pathname,
+  onLinkClick,
+}: {
+  item: NavItem;
+  pathname: string;
+  onLinkClick: () => void;
+}) {
   const active = isNavItemActive(pathname, item);
 
   if (!item.children) {
     return (
       <Link
         href={item.href}
+        onClick={onLinkClick}
         className={`block px-6 py-3 text-sm font-medium hover:bg-cream ${
           active ? "bg-cream text-navy" : "text-navy"
         }`}
@@ -174,6 +183,7 @@ function MobileNavSection({ item, pathname }: { item: NavItem; pathname: string 
             <Link
               key={child.href}
               href={child.href}
+              onClick={onLinkClick}
               className={`block py-2 pr-6 pl-10 text-sm hover:bg-cream hover:text-navy ${
                 childActive ? "bg-cream/60 font-medium text-navy" : "text-muted"
               }`}
@@ -190,9 +200,22 @@ function MobileNavSection({ item, pathname }: { item: NavItem; pathname: string 
 
 export function MobileNav() {
   const pathname = usePathname();
+  const menuRef = useRef<HTMLDetailsElement>(null);
+
+  const closeMenu = () => {
+    if (menuRef.current) {
+      menuRef.current.open = false;
+    }
+  };
+
+  useEffect(() => {
+    if (menuRef.current) {
+      menuRef.current.open = false;
+    }
+  }, [pathname]);
 
   return (
-    <details className="relative lg:hidden">
+    <details ref={menuRef} className="relative lg:hidden">
       <summary className="cursor-pointer list-none rounded-lg p-2 hover:bg-cream focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold [&::-webkit-details-marker]:hidden">
         <svg
           className="h-6 w-6 text-navy"
@@ -210,14 +233,23 @@ export function MobileNav() {
         </svg>
         <span className="sr-only">Open menu</span>
       </summary>
-      <div className="absolute top-full right-0 mt-2 max-h-[80vh] w-72 overflow-y-auto rounded-xl border border-border bg-white py-2 shadow-xl">
+      <div
+        key={pathname}
+        className="absolute top-full right-0 mt-2 max-h-[80vh] w-72 overflow-y-auto rounded-xl border border-border bg-white py-2 shadow-xl"
+      >
         {navigation.main.map((item) => (
-          <MobileNavSection key={item.label} item={item} pathname={pathname} />
+          <MobileNavSection
+            key={item.label}
+            item={item}
+            pathname={pathname}
+            onLinkClick={closeMenu}
+          />
         ))}
-        <ClientLoginMobileSection />
+        <ClientLoginMobileSection onLinkClick={closeMenu} />
         <div className="mt-2 space-y-2 border-t border-border px-6 pt-4 pb-2">
           <Link
             href="/schedule"
+            onClick={closeMenu}
             className="block rounded-full bg-navy px-5 py-2.5 text-center text-sm font-semibold text-white transition-colors hover:bg-navy-light"
           >
             Schedule Consultation
