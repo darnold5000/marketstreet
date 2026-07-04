@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Instrument_Serif, Inter } from "next/font/google";
 import { Header, Footer } from "@/components/layout/HeaderFooter";
 import { Analytics } from "@/components/analytics/Analytics";
+import { Analytics as VercelAnalytics } from "@vercel/analytics/next";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { organizationSchema, localBusinessSchema } from "@/lib/schema";
 import { createMetadata } from "@/lib/metadata";
@@ -45,6 +46,7 @@ export default function RootLayout({
         <main className="flex-1">{children}</main>
         <Footer />
         <Analytics />
+        <VercelAnalytics />
       </body>
     </html>
   );
