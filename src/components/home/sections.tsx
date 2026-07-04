@@ -39,15 +39,15 @@ const coreBenefits = [
 export function Hero() {
   return (
     <section className="relative min-h-[88vh] overflow-hidden bg-navy">
-      {/* <Image
+      <Image
         src="/images/indy1.jpg"
-        alt="Market Street advisors meeting with clients in Indianapolis"
+        alt="Indianapolis skyline at dusk — home of Market Street Wealth Management"
         fill
         priority
-        className="object-cover object-[center_35%] brightness-110 contrast-105 saturate-110"
+        className="object-cover object-center brightness-105 contrast-105"
         sizes="100vw"
-      /> */}
-      <div className="absolute inset-0 bg-gradient-to-t from-navy/95 via-navy/55 to-navy/35" />
+      />
+      <div className="absolute inset-0 bg-gradient-to-t from-navy/95 via-navy/50 to-navy/25" />
       <div className="relative mx-auto flex min-h-[88vh] max-w-7xl flex-col justify-end px-6 pb-20 pt-32 lg:px-8">
         <div className="max-w-3xl">
           <div className="mb-8 flex flex-wrap gap-3 animate-hero-headline">
@@ -129,15 +129,19 @@ export function StoryStatement() {
 
 export function StoryPhoto() {
   return (
-    <section className="group relative min-h-[420px] overflow-hidden bg-cream md:min-h-[520px] lg:min-h-[580px]">
-      <Image
-        src="/images/team-group.jpg"
-        alt="Market Street Wealth Management team in Indianapolis"
-        fill
-        className="object-cover object-top img-zoom"
-        sizes="100vw"
-      />
-      <div className="absolute inset-0 bg-gradient-to-t from-navy/30 via-transparent to-transparent" />
+    <section className="bg-cream py-4 md:py-8">
+      <div className="mx-auto max-w-6xl px-6 lg:px-8">
+        <div className="group overflow-hidden rounded-2xl border border-border bg-white shadow-sm">
+          <Image
+            src="/images/team-group.jpg"
+            alt="Market Street Wealth Management team in Indianapolis"
+            width={800}
+            height={534}
+            className="h-auto w-full"
+            sizes="(max-width: 1152px) 100vw, 1152px"
+          />
+        </div>
+      </div>
     </section>
   );
 }
