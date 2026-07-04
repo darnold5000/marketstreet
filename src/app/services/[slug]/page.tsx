@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import { createMetadata } from "@/lib/metadata";
 import {
@@ -19,6 +20,13 @@ import {
 import { services, getService } from "@/content/services";
 import { blogPosts } from "@/content/blog";
 import { siteConfig } from "@/content/site";
+
+const feeLinkedServices = new Set([
+  "wealth-management",
+  "foundations",
+  "investment-management",
+  "retirement-planning",
+]);
 
 export function generateStaticParams() {
   return services.map((service) => ({ slug: service.slug }));
@@ -172,6 +180,16 @@ export default async function ServicePage({
             </div>
           ))}
         </div>
+        {feeLinkedServices.has(slug) && (
+          <p className="mx-auto mt-8 max-w-3xl text-center">
+            <Link
+              href="/fees"
+              className="text-sm font-semibold text-gold hover:text-navy"
+            >
+              View our transparent fee schedule →
+            </Link>
+          </p>
+        )}
       </Section>
 
       {/* Process */}

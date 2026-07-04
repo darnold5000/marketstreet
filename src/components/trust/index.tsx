@@ -8,6 +8,7 @@ import {
   feeOnlyExplanation,
 } from "@/content/trust";
 import { FAQAccordion } from "@/components/ui";
+import { Icon } from "@/components/icons";
 
 export function TrustBadgeBar() {
   return (
@@ -116,7 +117,20 @@ export function FiduciarySection() {
 }
 
 export function FeeOnlySection() {
-  return <TrustExplainer data={feeOnlyExplanation} />;
+  return (
+    <div>
+      <TrustExplainer data={feeOnlyExplanation} />
+      <p className="mt-8">
+        <Link
+          href="/fees"
+          className="inline-flex items-center gap-1 text-sm font-semibold text-gold hover:text-navy"
+        >
+          View our complete fee schedule
+          <Icon name="arrow-right" size={16} />
+        </Link>
+      </p>
+    </div>
+  );
 }
 
 export function TrustCTA() {

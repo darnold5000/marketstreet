@@ -18,7 +18,10 @@ type IconName =
   | "file"
   | "clock"
   | "map-pin"
-  | "arrow-right";
+  | "arrow-right"
+  | "lock"
+  | "external-link"
+  | "chevron-down";
 
 const paths: Record<IconName, React.ReactNode> = {
   check: (
@@ -132,6 +135,21 @@ const paths: Record<IconName, React.ReactNode> = {
   ),
   "arrow-right": (
     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 12h14M12 5l7 7-7 7" />
+  ),
+  lock: (
+    <>
+      <rect x="3" y="11" width="18" height="11" rx="2" strokeWidth={1.75} />
+      <path strokeLinecap="round" strokeWidth={1.75} d="M7 11V7a5 5 0 0110 0v4" />
+    </>
+  ),
+  "external-link": (
+    <>
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.75} d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6" />
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.75} d="M15 3h6v6M10 14L21 3" />
+    </>
+  ),
+  "chevron-down": (
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 9l6 6 6-6" />
   ),
 };
 

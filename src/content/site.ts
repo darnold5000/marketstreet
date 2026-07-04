@@ -8,7 +8,6 @@ export const siteConfig = {
   foundedYear: 2001,
   email: "info@mswma.com",
   scheduleUrl: "/schedule",
-  clientCornerUrl: "https://client.schwab.com",
   social: {
     linkedin: "https://www.linkedin.com/company/market-street-wealth-management",
     facebook: "https://www.facebook.com/mswma",

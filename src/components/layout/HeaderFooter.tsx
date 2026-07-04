@@ -1,10 +1,16 @@
 import Link from "next/link";
 import Image from "next/image";
 import { siteConfig } from "@/content/site";
+import {
+  ClientLoginDropdown,
+  ClientLoginMobileSection,
+  ClientLoginFooterLinks,
+} from "@/components/layout/ClientLogin";
 
 export const navigation = {
   main: [
     { label: "About", href: "/about" },
+    { label: "Our Fees", href: "/fees" },
     { label: "Team", href: "/team" },
     {
       label: "Services",
@@ -81,10 +87,11 @@ export function Header() {
           ))}
         </nav>
 
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2 sm:gap-3">
+          <ClientLoginDropdown />
           <Link
             href="/schedule"
-            className="hidden rounded-full bg-navy px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-navy-light sm:inline-block"
+            className="hidden rounded-full bg-navy px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-navy-light sm:inline-block"
           >
             Schedule Consultation
           </Link>
@@ -104,7 +111,7 @@ function MobileNav() {
         </svg>
         <span className="sr-only">Open menu</span>
       </summary>
-      <div className="absolute top-full right-0 mt-2 w-72 rounded-xl border border-border bg-white py-4 shadow-xl">
+      <div className="absolute top-full right-0 mt-2 max-h-[80vh] w-72 overflow-y-auto rounded-xl border border-border bg-white py-4 shadow-xl">
         {navigation.main.map((item) => (
           <div key={item.label}>
             <Link
@@ -124,10 +131,11 @@ function MobileNav() {
             ))}
           </div>
         ))}
-        <div className="mt-2 border-t border-border px-6 pt-4">
+        <ClientLoginMobileSection />
+        <div className="mt-2 space-y-2 border-t border-border px-6 pt-4">
           <Link
             href="/schedule"
-            className="block rounded-full bg-navy px-5 py-2.5 text-center text-sm font-medium text-white"
+            className="block rounded-full bg-navy px-5 py-2.5 text-center text-sm font-semibold text-white"
           >
             Schedule Consultation
           </Link>
@@ -143,8 +151,8 @@ export function Footer() {
   return (
     <footer className="border-t border-border bg-navy text-white">
       <div className="mx-auto max-w-7xl px-6 py-16 lg:px-8">
-        <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
-          <div>
+        <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-5">
+          <div className="sm:col-span-2 lg:col-span-1">
             <div className="mb-4">
               <Image
                 src="/images/logo.png"
@@ -190,6 +198,11 @@ export function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/fees" className="text-sm text-white/70 hover:text-white">
+                  Our Fees
+                </Link>
+              </li>
+              <li>
                 <Link href="/team" className="text-sm text-white/70 hover:text-white">
                   Meet the Team
                 </Link>
@@ -200,16 +213,18 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/resources/faq" className="text-sm text-white/70 hover:text-white">
-                  FAQ
-                </Link>
-              </li>
-              <li>
                 <Link href="/locations" className="text-sm text-white/70 hover:text-white">
                   Locations
                 </Link>
               </li>
             </ul>
+          </div>
+
+          <div>
+            <h3 className="mb-4 text-sm font-semibold tracking-wider uppercase text-gold">
+              Client Login
+            </h3>
+            <ClientLoginFooterLinks />
           </div>
 
           <div>
@@ -228,14 +243,9 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <a
-                  href={siteConfig.clientCornerUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-sm text-white/70 hover:text-white"
-                >
-                  Client Corner
-                </a>
+                <Link href="/resources/faq" className="text-sm text-white/70 hover:text-white">
+                  FAQ
+                </Link>
               </li>
             </ul>
           </div>
