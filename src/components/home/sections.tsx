@@ -39,14 +39,14 @@ const coreBenefits = [
 export function Hero() {
   return (
     <section className="relative min-h-[88vh] overflow-hidden bg-navy">
-      <Image
+      {/* <Image
         src="/images/indy1.jpg"
         alt="Market Street advisors meeting with clients in Indianapolis"
         fill
         priority
         className="object-cover object-[center_35%] brightness-110 contrast-105 saturate-110"
         sizes="100vw"
-      />
+      /> */}
       <div className="absolute inset-0 bg-gradient-to-t from-navy/95 via-navy/55 to-navy/35" />
       <div className="relative mx-auto flex min-h-[88vh] max-w-7xl flex-col justify-end px-6 pb-20 pt-32 lg:px-8">
         <div className="max-w-3xl">
