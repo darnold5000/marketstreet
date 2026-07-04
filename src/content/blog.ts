@@ -13,6 +13,7 @@ export interface BlogPost {
   readTime: string;
   content: string;
   faqs?: { question: string; answer: string }[];
+  featuredImage?: string;
 }
 
 export const blogPosts: BlogPost[] = blogPostsData as BlogPost[];

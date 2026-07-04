@@ -89,15 +89,16 @@ export default async function ServicePage({
 
       {/* Hero */}
       <section className="relative overflow-hidden bg-navy pt-28 pb-20">
-        <div className="absolute inset-0 opacity-20">
+        <div className="absolute inset-0">
           <Image
             src="/images/hero-office.jpg"
             alt=""
             fill
-            className="object-cover"
+            className="object-cover object-[center_35%] brightness-110 contrast-105 opacity-50"
             sizes="100vw"
           />
         </div>
+        <div className="absolute inset-0 bg-navy/50" />
         <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
           <Breadcrumbs
             light

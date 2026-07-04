@@ -46,19 +46,19 @@ export function Header() {
           <Image
             src="/images/logo.png"
             alt={siteConfig.name}
-            width={180}
-            height={54}
-            className="h-10 w-auto"
+            width={207}
+            height={62}
+            className="h-[46px] w-auto"
             priority
           />
         </Link>
 
-        <nav className="hidden items-center gap-1 lg:flex" aria-label="Main navigation">
+        <nav className="hidden items-center gap-2 lg:flex" aria-label="Main navigation">
           {navigation.main.map((item) => (
             <div key={item.label} className="group relative">
               <Link
                 href={item.href}
-                className="rounded-lg px-3 py-2 text-sm font-medium text-foreground/80 transition-colors hover:bg-cream hover:text-navy"
+                className="rounded-lg px-4 py-2 text-sm font-medium text-foreground/80 transition-colors hover:bg-cream hover:text-navy"
               >
                 {item.label}
               </Link>

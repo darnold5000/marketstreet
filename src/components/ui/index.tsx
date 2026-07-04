@@ -5,6 +5,7 @@ interface ButtonProps {
   href: string;
   children: ReactNode;
   variant?: "primary" | "secondary" | "outline";
+  size?: "default" | "lg";
   className?: string;
   external?: boolean;
   trackEvent?: string;
@@ -17,15 +18,21 @@ const variants = {
     "border-2 border-navy text-navy hover:bg-navy hover:text-white",
 };
 
+const sizes = {
+  default: "px-7 py-3.5 text-sm",
+  lg: "px-9 py-4 text-base",
+};
+
 export function Button({
   href,
   children,
   variant = "primary",
+  size = "default",
   className = "",
   external,
   trackEvent,
 }: ButtonProps) {
-  const classes = `inline-flex items-center justify-center rounded-full px-7 py-3.5 text-sm font-semibold transition-all duration-200 ${variants[variant]} ${className}`;
+  const classes = `inline-flex items-center justify-center rounded-full font-semibold transition-all duration-200 ${variants[variant]} ${sizes[size]} ${className}`;
 
   const isExternal =
     external || href.startsWith("http") || href.startsWith("tel:") || href.startsWith("mailto:");

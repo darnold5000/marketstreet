@@ -22,53 +22,56 @@ const coreBenefits = [
   {
     icon: "heart" as IconName,
     title: "Personal relationships",
-    text: "We know your family, goals, and priorities — not just your portfolio.",
+    text: "Real advisors who know your family — not a call center.",
   },
   {
     icon: "shield" as IconName,
-    title: "Zero conflicts",
-    text: "Fee-only and fiduciary. We never sell products or earn commissions.",
+    title: "Always fiduciaries",
+    text: "Fee-only. No commissions. No product sales. Ever.",
   },
   {
     icon: "chart" as IconName,
     title: "Clear action plans",
-    text: "Simple, actionable strategies you can understand and trust.",
+    text: "Strategies you understand, from CFP® professionals.",
   },
 ];
 
 export function Hero() {
   return (
-    <section className="relative min-h-[90vh] overflow-hidden bg-navy">
+    <section className="relative min-h-[88vh] overflow-hidden bg-navy">
       <Image
         src="/images/hero-office.jpg"
-        alt="Market Street Wealth Management office"
+        alt="Market Street advisors meeting with clients in Indianapolis"
         fill
         priority
-        className="object-cover opacity-25 img-zoom"
+        className="object-cover object-[center_35%] brightness-110 contrast-105 saturate-110"
         sizes="100vw"
       />
-      <div className="absolute inset-0 bg-gradient-to-t from-navy via-navy/85 to-navy/70" />
-      <div className="relative mx-auto flex min-h-[90vh] max-w-7xl flex-col justify-end px-6 pb-20 pt-32 lg:px-8">
-        <div className="max-w-3xl animate-fade-up">
-          <div className="mb-8 flex flex-wrap gap-3">
+      <div className="absolute inset-0 bg-gradient-to-t from-navy/95 via-navy/55 to-navy/35" />
+      <div className="relative mx-auto flex min-h-[88vh] max-w-7xl flex-col justify-end px-6 pb-20 pt-32 lg:px-8">
+        <div className="max-w-3xl">
+          <div className="mb-8 flex flex-wrap gap-3 animate-hero-headline">
             {trustPills.map((pill) => (
               <span
                 key={pill.label}
-                className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-1.5 text-sm text-white/90 backdrop-blur-sm"
+                className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-sm text-white/95 backdrop-blur-sm"
               >
                 <Icon name={pill.icon} size={15} className="text-gold" />
                 {pill.label}
               </span>
             ))}
           </div>
-          <h1 className="font-display text-5xl leading-[1.05] text-white md:text-6xl lg:text-7xl">
+          <h1 className="animate-hero-headline-delay font-display text-5xl leading-[1.05] text-white md:text-6xl lg:text-7xl">
             Wealth management built on trust.
           </h1>
-          <p className="mt-6 max-w-xl text-lg text-white/75 md:text-xl">
-            Fee-only, fiduciary financial planning for Indiana professionals and families.
+          <p className="animate-hero-headline-delay mt-5 max-w-xl text-lg text-white/85 md:text-xl">
+            Serving Indiana families with fee-only fiduciary advice for more than 25 years.
           </p>
-          <div className="mt-10">
-            <Button href="/schedule" variant="secondary" trackEvent="hero_schedule">
+          <p className="animate-hero-headline-delay-2 mt-3 text-sm text-white/60">
+            No commissions. Always fiduciaries. Real advisors you can meet in person.
+          </p>
+          <div className="animate-hero-headline-delay-2 mt-10">
+            <Button href="/schedule" variant="secondary" size="lg" trackEvent="hero_schedule">
               Schedule Free Consultation
             </Button>
           </div>
@@ -79,24 +82,26 @@ export function Hero() {
 }
 
 export function TrustStats() {
+  const stats = [
+    { value: 25, suffix: "+", label: "Years Serving Indiana Families" },
+    { value: 12, suffix: "+", label: "Experienced Advisors & Staff" },
+    { value: 2, suffix: "", label: "Convenient Office Locations" },
+    { value: 100, suffix: "%", label: "Fee-Only Fiduciary Advice" },
+  ];
+
   return (
-    <section className="border-b border-border bg-white py-14">
-      <div className="mx-auto grid max-w-7xl grid-cols-2 gap-10 px-6 md:grid-cols-4 lg:px-8">
-        {[
-          { value: 25, suffix: "+", label: "Years in business" },
-          { value: 100, suffix: "%", label: "Fee-only & fiduciary" },
-          { value: 2, suffix: "", label: "Indiana offices" },
-          { value: 12, suffix: "+", label: "Team members" },
-        ].map((stat, i) => (
+    <section className="border-b border-border bg-white py-16 md:py-20">
+      <div className="mx-auto grid max-w-7xl grid-cols-2 gap-12 px-6 md:grid-cols-4 lg:px-8">
+        {stats.map((stat, i) => (
           <div
             key={stat.label}
             className="text-center animate-fade-up"
             style={{ animationDelay: `${i * 100}ms` }}
           >
-            <p className="font-display text-4xl text-navy md:text-5xl">
+            <p className="font-display text-4xl text-navy md:text-5xl lg:text-6xl">
               <AnimatedCounter value={stat.value} suffix={stat.suffix} />
             </p>
-            <p className="mt-2 text-sm text-muted">{stat.label}</p>
+            <p className="mt-3 text-sm leading-snug text-muted">{stat.label}</p>
           </div>
         ))}
       </div>
@@ -124,15 +129,15 @@ export function StoryStatement() {
 
 export function StoryPhoto() {
   return (
-    <section className="relative h-[50vh] min-h-[360px] overflow-hidden md:h-[60vh]">
+    <section className="group relative min-h-[420px] overflow-hidden bg-cream md:min-h-[520px] lg:min-h-[580px]">
       <Image
-        src="/images/team-advising.jpg"
-        alt="Market Street advisors with clients"
+        src="/images/team-group.jpg"
+        alt="Market Street Wealth Management team in Indianapolis"
         fill
-        className="object-cover img-zoom"
+        className="object-cover object-top img-zoom"
         sizes="100vw"
       />
-      <div className="absolute inset-0 bg-navy/20" />
+      <div className="absolute inset-0 bg-gradient-to-t from-navy/30 via-transparent to-transparent" />
     </section>
   );
 }
