@@ -91,7 +91,7 @@ export default async function ServicePage({
       <section className="relative overflow-hidden bg-navy pt-28 pb-20">
         <div className="absolute inset-0">
           <Image
-            src="/images/hero-office.jpg"
+            src="/images/indy1.jpg"
             alt=""
             fill
             className="object-cover object-[center_35%] brightness-110 contrast-105 opacity-50"

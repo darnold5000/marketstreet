@@ -40,7 +40,7 @@ export function Hero() {
   return (
     <section className="relative min-h-[88vh] overflow-hidden bg-navy">
       <Image
-        src="/images/hero-office.jpg"
+        src="/images/indy1.jpg"
         alt="Market Street advisors meeting with clients in Indianapolis"
         fill
         priority
