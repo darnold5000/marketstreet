@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Icon } from "@/components/icons";
@@ -18,10 +19,19 @@ const navLinkBase =
 const navLinkDefault = `${navLinkBase} text-foreground/80 hover:bg-cream hover:text-navy`;
 const navLinkActive = `${navLinkBase} bg-cream text-navy`;
 
-const dropdownPanel =
-  "invisible absolute top-full left-0 z-50 min-w-[220px] pt-2 opacity-0 transition-all group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100";
-
-function DesktopNavItem({ item, pathname }: { item: NavItem; pathname: string }) {
+function DesktopNavItem({
+  item,
+  pathname,
+  isOpen,
+  onOpen,
+  onClose,
+}: {
+  item: NavItem;
+  pathname: string;
+  isOpen: boolean;
+  onOpen: () => void;
+  onClose: () => void;
+}) {
   const active = isNavItemActive(pathname, item);
 
   if (!item.children) {
@@ -30,6 +40,8 @@ function DesktopNavItem({ item, pathname }: { item: NavItem; pathname: string })
         href={item.href}
         className={active ? navLinkActive : navLinkDefault}
         aria-current={active ? "page" : undefined}
+        onMouseEnter={onClose}
+        onFocus={onClose}
       >
         {item.label}
       </Link>
@@ -37,17 +49,33 @@ function DesktopNavItem({ item, pathname }: { item: NavItem; pathname: string })
   }
 
   return (
-    <div className="group relative">
+    <div
+      className="relative"
+      onMouseEnter={onOpen}
+      onFocusCapture={onOpen}
+      onBlur={(event) => {
+        if (!event.currentTarget.contains(event.relatedTarget as Node | null)) {
+          onClose();
+        }
+      }}
+    >
       <Link
         href={item.href}
-        className={`inline-flex items-center gap-1 ${active ? navLinkActive : navLinkDefault}`}
+        className={`inline-flex items-center gap-1 ${active || isOpen ? navLinkActive : navLinkDefault}`}
         aria-current={active ? "page" : undefined}
         aria-haspopup="true"
+        aria-expanded={isOpen}
       >
         {item.label}
         <Icon name="chevron-down" size={14} className="opacity-60" aria-hidden="true" />
       </Link>
-      <div className={dropdownPanel}>
+      <div
+        className={`absolute top-full left-0 z-50 min-w-[220px] pt-1 transition-opacity duration-150 ${
+          isOpen
+            ? "visible opacity-100"
+            : "invisible pointer-events-none opacity-0"
+        }`}
+      >
         <div
           className="rounded-xl border border-border bg-white py-2 shadow-lg"
           role="menu"
@@ -76,11 +104,37 @@ function DesktopNavItem({ item, pathname }: { item: NavItem; pathname: string })
 
 export function DesktopNav() {
   const pathname = usePathname();
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+
+  useEffect(() => {
+    setOpenDropdown(null);
+  }, [pathname]);
+
+  useEffect(() => {
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setOpenDropdown(null);
+      }
+    };
+    document.addEventListener("keydown", onKeyDown);
+    return () => document.removeEventListener("keydown", onKeyDown);
+  }, []);
 
   return (
-    <nav className="hidden items-center gap-1 lg:flex" aria-label="Main navigation">
+    <nav
+      className="hidden items-center gap-1 lg:flex"
+      aria-label="Main navigation"
+      onMouseLeave={() => setOpenDropdown(null)}
+    >
       {navigation.main.map((item) => (
-        <DesktopNavItem key={item.label} item={item} pathname={pathname} />
+        <DesktopNavItem
+          key={item.label}
+          item={item}
+          pathname={pathname}
+          isOpen={openDropdown === item.label}
+          onOpen={() => setOpenDropdown(item.label)}
+          onClose={() => setOpenDropdown(null)}
+        />
       ))}
     </nav>
   );
