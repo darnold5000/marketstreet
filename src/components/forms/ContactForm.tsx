@@ -10,6 +10,7 @@ interface FormData {
   inquiryType: string;
   lifePhase: string;
   message: string;
+  website: string;
 }
 
 const initialFormData: FormData = {
@@ -20,6 +21,7 @@ const initialFormData: FormData = {
   inquiryType: "general",
   lifePhase: "",
   message: "",
+  website: "",
 };
 
 export function ContactForm() {
@@ -175,6 +177,19 @@ export function ContactForm() {
           value={formData.message}
           onChange={(e) => setFormData({ ...formData, message: e.target.value })}
           className="w-full rounded-lg border border-border px-4 py-3 text-sm transition-colors focus:border-gold focus:outline-none focus:ring-1 focus:ring-gold"
+        />
+      </div>
+
+      <div className="absolute -left-[9999px]" aria-hidden="true">
+        <label htmlFor="website">Website</label>
+        <input
+          id="website"
+          type="text"
+          name="website"
+          tabIndex={-1}
+          autoComplete="off"
+          value={formData.website}
+          onChange={(e) => setFormData({ ...formData, website: e.target.value })}
         />
       </div>
 

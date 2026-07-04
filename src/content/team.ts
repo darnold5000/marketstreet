@@ -6,6 +6,7 @@ export interface TeamMember {
   role: "advisor" | "operations" | "support";
   specialties: string[];
   bio: string;
+  photo?: string;
   marketStreetSince: string;
   industrySince: string;
   education?: string;
@@ -27,6 +28,7 @@ export const teamMembers: TeamMember[] = [
       "Business Owners Exiting their Business",
     ],
     bio: "Kevin founded Market Street Wealth Management in 2001 with a vision to provide transparent, client-first financial planning. With decades of experience in tax planning and business owner advisory, he helps clients reach their most important life goals.",
+    photo: "/images/team/kevinErvin.jpg",
     marketStreetSince: "2001",
     industrySince: "1983",
     education: "B.S. Accounting, Ball State University; MBA Finance, Indiana University",
@@ -45,6 +47,7 @@ export const teamMembers: TeamMember[] = [
       "Implementing investment plans",
     ],
     bio: "Patrick oversees trading, operations, finances, and technology at Market Street. He brings a unique perspective from his background in technology and back-office operations, ensuring clients receive seamless service.",
+    photo: "/images/team/patrickRoberts.jpg",
     marketStreetSince: "2015",
     industrySince: "2008",
     education: "Franklin College, Accounting",
@@ -64,6 +67,7 @@ export const teamMembers: TeamMember[] = [
       "Crawfordsville individuals nearing retirement",
     ],
     bio: "Jessica has been with Market Street since 2006, helping clients navigate retirement transitions with clarity and compassion. She specializes in working with educators and individuals approaching retirement.",
+    photo: "/images/team/jessicaBokhart.jpg",
     marketStreetSince: "2006",
     industrySince: "2006",
     education: "Purdue University, BS in Financial Counseling and Planning",
@@ -83,6 +87,7 @@ export const teamMembers: TeamMember[] = [
       "Deloitte employees",
     ],
     bio: "Kyle simplifies complex financial situations and helps clients turn long-term dreams into reality. As Chief Investment Officer, he leads Market Street's investment strategy and portfolio management.",
+    photo: "/images/team/kyleThompson.jpg",
     marketStreetSince: "2015",
     industrySince: "2005",
     education: "Indiana University, B.S. in Accounting and Finance",
@@ -101,6 +106,7 @@ export const teamMembers: TeamMember[] = [
       "Single women",
     ],
     bio: "Katie educates clients about their financial situation and helps them navigate life transitions like career changes and retirement. She serves as Chief Compliance Officer, ensuring the highest standards of client care.",
+    photo: "/images/team/katieFischer.jpg",
     marketStreetSince: "2013",
     industrySince: "2010",
     education: "Purdue University, B.S. in Financial Counseling and Planning",
@@ -121,6 +127,7 @@ export const teamMembers: TeamMember[] = [
       "Medicare planning",
     ],
     bio: "Aaron specializes in the nuanced details of retirement planning — Social Security optimization, Medicare, and healthcare subsidies. He loves the moment when a complex strategy clicks for a client.",
+    photo: "/images/team/arronWilliams.jpg",
     marketStreetSince: "2015",
     industrySince: "2012",
     education:
@@ -140,6 +147,7 @@ export const teamMembers: TeamMember[] = [
       "Amazon employees",
     ],
     bio: "Austin empowers clients to take action and see the emotional impact of smart financial decisions — from building dream homes to gaining the confidence to cut back on work hours.",
+    photo: "/images/team/austinAngel.jpg",
     marketStreetSince: "2017",
     industrySince: "2017",
     education: "Indiana State University",
@@ -154,6 +162,7 @@ export const teamMembers: TeamMember[] = [
     role: "support",
     specialties: ["Client service", "Financial planning", "Process and workflow"],
     bio: "Adriane supports advisors and clients with detailed financial planning and exceptional client service.",
+    photo: "/images/team/adrianeKulczar.jpg",
     marketStreetSince: "2020",
     industrySince: "2007",
     education: "Indiana University Purdue University Fort Wayne",
@@ -166,6 +175,7 @@ export const teamMembers: TeamMember[] = [
     role: "support",
     specialties: ["Team support", "Improving processes and workflows"],
     bio: "Tori supports the Market Street team with process improvements and workflow optimization.",
+    photo: "/images/team/toriDeleon.jpg",
     marketStreetSince: "2022",
     industrySince: "2016",
   },
@@ -181,6 +191,7 @@ export const teamMembers: TeamMember[] = [
       "Building sound financial plans",
     ],
     bio: "Brittany assists in building sound financial plans and providing detailed client service.",
+    photo: "/images/team/brittanyMiller.jpg",
     marketStreetSince: "2023",
     industrySince: "2016",
     education: "Ivy Tech Community College, Associate of Science in Nursing",
@@ -197,6 +208,7 @@ export const teamMembers: TeamMember[] = [
       "Detailed client service",
     ],
     bio: "Latrisha helps build sound financial plans while providing detailed client service and team support.",
+    photo: "/images/team/latrishaMaxwell.jpg",
     marketStreetSince: "2024",
     industrySince: "2024",
     education: "Millikin University, B.A. in Communication",
@@ -213,6 +225,7 @@ export const teamMembers: TeamMember[] = [
       "Data Reconciliation and Automation",
     ],
     bio: "Doug manages trading, reporting, and data reconciliation, ensuring accurate and efficient investment operations.",
+    photo: "/images/team/dougOneal.jpg",
     marketStreetSince: "2021",
     industrySince: "2008",
     education: "Purdue University, BS in Mathematics, minor in Management",

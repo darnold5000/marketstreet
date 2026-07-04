@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { siteConfig } from "@/content/site";
 
 export const navigation = {
@@ -29,6 +30,7 @@ export const navigation = {
         { label: "Blog", href: "/resources/blog" },
         { label: "FAQ", href: "/resources/faq" },
         { label: "Educational Guides", href: "/resources/guides" },
+        { label: "Financial Answers", href: "/answers" },
       ],
     },
     { label: "Locations", href: "/locations" },
@@ -41,17 +43,14 @@ export function Header() {
     <header className="sticky top-0 z-50 border-b border-border/60 bg-background/95 backdrop-blur-md">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8">
         <Link href="/" className="group flex items-center gap-3">
-          <div className="flex h-10 w-10 items-center justify-center rounded-full bg-navy text-sm font-bold text-white">
-            MS
-          </div>
-          <div className="hidden sm:block">
-            <span className="block font-serif text-lg leading-tight text-navy">
-              Market Street
-            </span>
-            <span className="block text-xs tracking-wider text-muted uppercase">
-              Wealth Management
-            </span>
-          </div>
+          <Image
+            src="/images/logo.png"
+            alt={siteConfig.name}
+            width={180}
+            height={54}
+            className="h-10 w-auto"
+            priority
+          />
         </Link>
 
         <nav className="hidden items-center gap-1 lg:flex" aria-label="Main navigation">
@@ -146,11 +145,14 @@ export function Footer() {
       <div className="mx-auto max-w-7xl px-6 py-16 lg:px-8">
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
           <div>
-            <div className="mb-4 flex items-center gap-3">
-              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-sm font-bold">
-                MS
-              </div>
-              <span className="font-serif text-lg">{siteConfig.name}</span>
+            <div className="mb-4">
+              <Image
+                src="/images/logo.png"
+                alt={siteConfig.name}
+                width={160}
+                height={48}
+                className="h-8 w-auto brightness-0 invert"
+              />
             </div>
             <p className="text-sm leading-relaxed text-white/70">
               {siteConfig.description}

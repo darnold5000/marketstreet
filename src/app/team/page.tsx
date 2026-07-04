@@ -1,5 +1,7 @@
 import { createMetadata } from "@/lib/metadata";
 import { Section, SectionHeader, Breadcrumbs, CTABanner } from "@/components/ui";
+import { AdvisorCard } from "@/components/team/TeamPhoto";
+import { AssociationBadges } from "@/components/trust";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { breadcrumbSchema, personSchema, webPageSchema } from "@/lib/schema";
 import { teamMembers } from "@/content/team";
@@ -43,53 +45,7 @@ export default function TeamPage() {
         <h3 className="mb-8 font-serif text-2xl text-navy">Financial Advisors</h3>
         <div className="grid gap-8 md:grid-cols-2">
           {advisors.map((member) => (
-            <article
-              key={member.slug}
-              className="rounded-2xl border border-border p-8"
-            >
-              <div className="flex items-start gap-5">
-                <div className="flex h-20 w-20 shrink-0 items-center justify-center rounded-full bg-cream font-serif text-2xl text-navy">
-                  {member.name.split(" ").map((n) => n[0]).join("")}
-                </div>
-                <div>
-                  <h4 className="font-serif text-xl text-navy">
-                    {member.name}
-                    {member.credentials && (
-                      <span className="text-gold">, {member.credentials}</span>
-                    )}
-                  </h4>
-                  <p className="text-sm text-muted">{member.title}</p>
-                </div>
-              </div>
-              <p className="mt-4 text-sm leading-relaxed text-muted">{member.bio}</p>
-              {member.specialties.length > 0 && (
-                <div className="mt-4">
-                  <p className="text-xs font-semibold tracking-wider text-navy uppercase">
-                    Specialties
-                  </p>
-                  <div className="mt-2 flex flex-wrap gap-2">
-                    {member.specialties.map((s) => (
-                      <span
-                        key={s}
-                        className="rounded-full bg-cream px-3 py-1 text-xs text-muted"
-                      >
-                        {s}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              )}
-              <div className="mt-4 grid grid-cols-2 gap-4 text-xs text-muted">
-                <div>
-                  <span className="font-semibold text-navy">At Market Street:</span>{" "}
-                  Since {member.marketStreetSince}
-                </div>
-                <div>
-                  <span className="font-semibold text-navy">Industry:</span> Since{" "}
-                  {member.industrySince}
-                </div>
-              </div>
-            </article>
+            <AdvisorCard key={member.slug} member={member} />
           ))}
         </div>
 
@@ -98,20 +54,15 @@ export default function TeamPage() {
         </h3>
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {support.map((member) => (
-            <article
-              key={member.slug}
-              className="rounded-2xl border border-border p-6"
-            >
-              <h4 className="font-serif text-lg text-navy">
-                {member.name}
-                {member.credentials && (
-                  <span className="text-gold">, {member.credentials}</span>
-                )}
-              </h4>
-              <p className="text-sm text-muted">{member.title}</p>
-              <p className="mt-3 text-sm leading-relaxed text-muted">{member.bio}</p>
-            </article>
+            <AdvisorCard key={member.slug} member={member} showBio={true} />
           ))}
+        </div>
+
+        <div className="mt-16">
+          <h3 className="mb-6 text-center font-serif text-2xl text-navy">
+            Professional Associations
+          </h3>
+          <AssociationBadges />
         </div>
       </Section>
 

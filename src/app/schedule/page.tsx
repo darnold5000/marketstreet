@@ -1,8 +1,12 @@
 import { createMetadata } from "@/lib/metadata";
-import { Section, SectionHeader, Breadcrumbs, Button } from "@/components/ui";
+import { Section, SectionHeader, Breadcrumbs } from "@/components/ui";
+import { CalendlyEmbed } from "@/components/schedule/CalendlyEmbed";
+import { FirstMeetingTimeline } from "@/components/trust";
 import { JsonLd } from "@/components/seo/JsonLd";
-import { breadcrumbSchema, webPageSchema } from "@/lib/schema";
-import { locations } from "@/content/locations";
+import { breadcrumbSchema, webPageSchema, faqSchema } from "@/lib/schema";
+import { firstMeetingSteps } from "@/content/trust";
+
+const CALENDLY_URL = process.env.NEXT_PUBLIC_CALENDLY_URL ?? "";
 
 export const metadata = createMetadata({
   title: "Schedule a Consultation",
@@ -21,6 +25,18 @@ export default function SchedulePage() {
             "Schedule a complimentary consultation with Market Street",
             "/schedule"
           ),
+          faqSchema([
+            {
+              question: "Is the first meeting free?",
+              answer:
+                "Yes. Your initial consultation is complimentary with no obligation to become a client.",
+            },
+            {
+              question: "How long is the first meeting?",
+              answer:
+                "Initial consultations typically last 45–60 minutes.",
+            },
+          ]),
           breadcrumbSchema([
             { name: "Home", url: "/" },
             { name: "Schedule Consultation", url: "/schedule" },
@@ -30,61 +46,45 @@ export default function SchedulePage() {
 
       <Section className="pt-16">
         <Breadcrumbs items={[{ label: "Schedule Consultation" }]} />
-        <div className="mx-auto max-w-3xl text-center">
-          <SectionHeader
-            eyebrow="Get Started"
-            title="Schedule a complimentary consultation"
-            description="We'd love to meet you. Schedule a low-stress, no-obligation meeting with one of our advisors today."
-            centered
-          />
+        <SectionHeader
+          eyebrow="Get Started"
+          title="Schedule your complimentary consultation"
+          description="We'd love to meet you. Pick a time that works — it's a low-stress, no-obligation conversation with a fee-only, fiduciary advisor."
+          centered
+        />
 
-          <div className="mt-8 rounded-2xl border border-border bg-cream p-10">
-            <h2 className="font-serif text-xl text-navy">What to expect</h2>
-            <ul className="mt-6 space-y-4 text-left text-muted">
-              <li className="flex items-start gap-3">
-                <span className="mt-1 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-navy text-xs text-white">
-                  1
-                </span>
-                A friendly conversation about your goals and financial situation
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="mt-1 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-navy text-xs text-white">
-                  2
-                </span>
-                An overview of how Market Street can help — no sales pitch
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="mt-1 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-navy text-xs text-white">
-                  3
-                </span>
-                Time to ask questions and determine if we&apos;re the right fit
-              </li>
-            </ul>
-          </div>
+        <div className="mx-auto max-w-4xl">
+          <CalendlyEmbed url={CALENDLY_URL} />
+        </div>
 
-          <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-            <Button href="/contact" variant="primary" trackEvent="schedule_contact">
+        {!CALENDLY_URL && (
+          <div className="mx-auto mt-8 flex max-w-md flex-col gap-3 sm:flex-row sm:justify-center">
+            <a
+              href="/contact"
+              className="rounded-full bg-navy px-7 py-3.5 text-center text-sm font-semibold text-white hover:bg-navy-light"
+            >
               Contact Us to Schedule
-            </Button>
-            {locations.map((loc) => (
-              <Button
-                key={loc.id}
-                href={`tel:${loc.phone.replace(/[^\d+]/g, "")}`}
-                variant="outline"
-                trackEvent="schedule_phone"
-              >
-                Call {loc.city}
-              </Button>
-            ))}
+            </a>
+            <a
+              href="tel:3175520505"
+              className="rounded-full border-2 border-navy px-7 py-3.5 text-center text-sm font-semibold text-navy hover:bg-navy hover:text-white"
+              data-track="schedule_phone"
+            >
+              Call (317) 552-0505
+            </a>
           </div>
+        )}
+      </Section>
 
-          <p className="mt-8 text-sm text-muted">
-            Prefer to reach out online?{" "}
-            <a href="/contact" className="font-medium text-navy hover:text-gold">
-              Fill out our contact form
-            </a>{" "}
-            and we&apos;ll be in touch to schedule your meeting.
-          </p>
+      <Section background="cream">
+        <SectionHeader
+          eyebrow="What to Expect"
+          title="Your first meeting, step by step"
+          description="Here's exactly what happens during your complimentary consultation — no surprises, no sales pitch."
+          centered
+        />
+        <div className="mx-auto max-w-2xl">
+          <FirstMeetingTimeline />
         </div>
       </Section>
     </>

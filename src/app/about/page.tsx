@@ -1,5 +1,6 @@
 import { createMetadata } from "@/lib/metadata";
 import { Section, SectionHeader, Button, CTABanner } from "@/components/ui";
+import { FiduciarySection, FeeOnlySection, FirstMeetingTimeline, AssociationBadges } from "@/components/trust";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { breadcrumbSchema, webPageSchema } from "@/lib/schema";
 export const metadata = createMetadata({
@@ -102,6 +103,35 @@ export default function AboutPage() {
             </div>
           ))}
         </div>
+      </Section>
+
+      <Section background="cream">
+        <FiduciarySection />
+      </Section>
+
+      <Section>
+        <FeeOnlySection />
+      </Section>
+
+      <Section background="cream">
+        <SectionHeader
+          eyebrow="What to Expect"
+          title="Your first meeting with Market Street"
+          description="A complimentary, no-obligation conversation designed to help you decide if we're the right fit."
+          centered
+        />
+        <div className="mx-auto max-w-2xl">
+          <FirstMeetingTimeline />
+        </div>
+      </Section>
+
+      <Section>
+        <SectionHeader
+          eyebrow="Professional Standards"
+          title="Affiliations and credentials"
+          centered
+        />
+        <AssociationBadges />
       </Section>
 
       <Section>

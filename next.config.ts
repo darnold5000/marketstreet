@@ -19,6 +19,16 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  async redirects() {
+    return [
+      { source: "/wealth-management", destination: "/services/wealth-management", permanent: true },
+      { source: "/wealth-management/", destination: "/services/wealth-management", permanent: true },
+      { source: "/blog", destination: "/resources/blog", permanent: true },
+      { source: "/blog/", destination: "/resources/blog", permanent: true },
+      { source: "/about/", destination: "/about", permanent: true },
+      { source: "/contact/", destination: "/contact", permanent: true },
+    ];
+  },
   async headers() {
     return [
       {
