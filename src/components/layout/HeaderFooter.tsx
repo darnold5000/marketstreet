@@ -3,46 +3,12 @@ import Image from "next/image";
 import { siteConfig } from "@/content/site";
 import {
   ClientLoginDropdown,
-  ClientLoginMobileSection,
   ClientLoginFooterLinks,
 } from "@/components/layout/ClientLogin";
+import { DesktopNav, MobileNav } from "@/components/layout/MainNav";
+import { navigation } from "@/components/layout/navigation";
 
-export const navigation = {
-  main: [
-    { label: "About", href: "/about" },
-    { label: "Our Fees", href: "/fees" },
-    { label: "Team", href: "/team" },
-    {
-      label: "Services",
-      href: "/services/wealth-management",
-      children: [
-        { label: "Wealth Management", href: "/services/wealth-management" },
-        { label: "Retirement Planning", href: "/services/retirement-planning" },
-        {
-          label: "Business Retirement Plans",
-          href: "/services/business-retirement-plans",
-        },
-        { label: "Foundations", href: "/services/foundations" },
-        {
-          label: "Investment Management",
-          href: "/services/investment-management",
-        },
-      ],
-    },
-    {
-      label: "Resources",
-      href: "/resources/blog",
-      children: [
-        { label: "Blog", href: "/resources/blog" },
-        { label: "FAQ", href: "/resources/faq" },
-        { label: "Educational Guides", href: "/resources/guides" },
-        { label: "Financial Answers", href: "/answers" },
-      ],
-    },
-    { label: "Locations", href: "/locations" },
-    { label: "Contact", href: "/contact" },
-  ],
-};
+export { navigation };
 
 export function Header() {
   return (
@@ -59,33 +25,7 @@ export function Header() {
           />
         </Link>
 
-        <nav className="hidden items-center gap-2 lg:flex" aria-label="Main navigation">
-          {navigation.main.map((item) => (
-            <div key={item.label} className="group relative">
-              <Link
-                href={item.href}
-                className="rounded-lg px-4 py-2 text-sm font-medium text-foreground/80 transition-colors hover:bg-cream hover:text-navy"
-              >
-                {item.label}
-              </Link>
-              {item.children && (
-                <div className="invisible absolute top-full left-0 z-50 min-w-[220px] pt-2 opacity-0 transition-all group-hover:visible group-hover:opacity-100">
-                  <div className="rounded-xl border border-border bg-white py-2 shadow-lg">
-                    {item.children.map((child) => (
-                      <Link
-                        key={child.href}
-                        href={child.href}
-                        className="block px-4 py-2.5 text-sm text-foreground/80 transition-colors hover:bg-cream hover:text-navy"
-                      >
-                        {child.label}
-                      </Link>
-                    ))}
-                  </div>
-                </div>
-              )}
-            </div>
-          ))}
-        </nav>
+        <DesktopNav />
 
         <div className="flex items-center gap-2 sm:gap-3">
           <ClientLoginDropdown />
@@ -99,49 +39,6 @@ export function Header() {
         </div>
       </div>
     </header>
-  );
-}
-
-function MobileNav() {
-  return (
-    <details className="relative lg:hidden">
-      <summary className="cursor-pointer list-none rounded-lg p-2 hover:bg-cream [&::-webkit-details-marker]:hidden">
-        <svg className="h-6 w-6 text-navy" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-        </svg>
-        <span className="sr-only">Open menu</span>
-      </summary>
-      <div className="absolute top-full right-0 mt-2 max-h-[80vh] w-72 overflow-y-auto rounded-xl border border-border bg-white py-4 shadow-xl">
-        {navigation.main.map((item) => (
-          <div key={item.label}>
-            <Link
-              href={item.href}
-              className="block px-6 py-2.5 text-sm font-medium text-navy hover:bg-cream"
-            >
-              {item.label}
-            </Link>
-            {item.children?.map((child) => (
-              <Link
-                key={child.href}
-                href={child.href}
-                className="block py-2 pr-6 pl-10 text-sm text-muted hover:bg-cream hover:text-navy"
-              >
-                {child.label}
-              </Link>
-            ))}
-          </div>
-        ))}
-        <ClientLoginMobileSection />
-        <div className="mt-2 space-y-2 border-t border-border px-6 pt-4">
-          <Link
-            href="/schedule"
-            className="block rounded-full bg-navy px-5 py-2.5 text-center text-sm font-semibold text-white"
-          >
-            Schedule Consultation
-          </Link>
-        </div>
-      </div>
-    </details>
   );
 }
 
