@@ -18,8 +18,8 @@ export function Header() {
           <Image
             src="/images/logo.png"
             alt={siteConfig.name}
-            width={207}
-            height={62}
+            width={220}
+            height={68}
             className="h-[46px] w-auto"
             priority
           />
@@ -54,8 +54,8 @@ export function Footer() {
               <Image
                 src="/images/logo.png"
                 alt={siteConfig.name}
-                width={160}
-                height={48}
+                width={180}
+                height={56}
                 className="h-8 w-auto brightness-0 invert"
               />
             </div>
