@@ -28,7 +28,7 @@ const guides = [
   {
     title: "Financial Planning for Young Professionals",
     description:
-      "Why starting early matters and how Market Street's Foundations program helps build lasting wealth.",
+      "Why starting early matters and how NorthBridge's Foundations program helps build lasting wealth.",
     href: "/resources/blog/foundations-program-young-professionals",
   },
   ...services.map((s) => ({
@@ -45,7 +45,7 @@ export default function GuidesPage() {
         data={[
           webPageSchema(
             "Educational Guides",
-            "Educational guides from Market Street Wealth Management",
+            "Educational guides from NorthBridge Wealth",
             "/resources/guides"
           ),
           breadcrumbSchema([

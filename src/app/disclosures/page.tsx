@@ -12,7 +12,7 @@ import {
 export const metadata = createMetadata({
   title: "Important Disclosures",
   description:
-    "Review important regulatory disclosures, investment advisory information, and legal notices for Market Street Wealth Management Advisors.",
+    "Review important regulatory disclosures, investment advisory information, and legal notices for NorthBridge Wealth Advisors.",
   path: "/disclosures",
 });
 
@@ -23,7 +23,7 @@ export default function DisclosuresPage() {
         data={[
           webPageSchema(
             "Important Disclosure Information",
-            "Regulatory disclosures and legal notices for Market Street Wealth Management Advisors, LLC",
+            "Regulatory disclosures and legal notices for NorthBridge Wealth Advisors, LLC",
             "/disclosures"
           ),
           breadcrumbSchema([
@@ -44,7 +44,7 @@ export default function DisclosuresPage() {
               Important Disclosure Information
             </h1>
             <p className="mt-6 text-lg text-white/80 md:text-xl">
-              Transparency and regulatory information regarding Market Street Wealth
+              Transparency and regulatory information regarding NorthBridge Wealth
               Management Advisors, LLC.
             </p>
           </div>

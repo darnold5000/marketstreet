@@ -107,7 +107,7 @@ export default async function AnswerPage({
 
       <CTABanner
         title="Want personalized answers for your situation?"
-        description="Schedule a complimentary consultation with a Market Street advisor."
+        description="Schedule a complimentary consultation with a NorthBridge advisor."
       />
     </>
   );

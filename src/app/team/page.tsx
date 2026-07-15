@@ -9,7 +9,7 @@ import { teamMembers } from "@/content/team";
 export const metadata = createMetadata({
   title: "Meet the Team",
   description:
-    "Meet the Market Street Wealth Management team — Certified Financial Planners, CPAs, and financial experts dedicated to your success.",
+    "Meet the NorthBridge Wealth team — Certified Financial Planners, CPAs, and financial experts dedicated to your success.",
   path: "/team",
 });
 
@@ -23,7 +23,7 @@ export default function TeamPage() {
         data={[
           webPageSchema(
             "Meet the Team",
-            "Meet the Market Street Wealth Management team",
+            "Meet the NorthBridge Wealth team",
             "/team"
           ),
           breadcrumbSchema([
@@ -39,7 +39,7 @@ export default function TeamPage() {
         <SectionHeader
           eyebrow="Our People"
           title="Professional expertise with genuine personality"
-          description="At Market Street, we believe we've found the ideal balance of professionalism and personality. We understand money is personal, and true wealth is so much more than just money."
+          description="At NorthBridge, we believe we've found the ideal balance of professionalism and personality. We understand money is personal, and true wealth is so much more than just money."
         />
 
         <h3 className="mb-8 font-serif text-2xl text-navy">Financial Advisors</h3>

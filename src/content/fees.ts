@@ -9,9 +9,9 @@ export const wealthManagementFeeTiers = [
 
 export const feesFaqs = [
   {
-    question: "Is Market Street fee-only?",
+    question: "Is NorthBridge fee-only?",
     answer:
-      "Yes. Market Street is a fee-only firm. We are compensated exclusively by our clients — never through commissions, referral fees, or product sales.",
+      "Yes. NorthBridge is a fee-only firm. We are compensated exclusively by our clients — never through commissions, referral fees, or product sales.",
   },
   {
     question: "How are wealth management fees calculated?",

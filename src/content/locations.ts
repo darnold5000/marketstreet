@@ -12,27 +12,27 @@ export interface Location {
 
 export const locations: Location[] = [
   {
-    id: "indianapolis",
-    name: "Indianapolis Office",
-    address: "3105 East 98th Street, Suite 170",
-    city: "Indianapolis",
+    id: "carmel",
+    name: "Carmel Office",
+    address: "8450 North Bridge Parkway, Suite 200",
+    city: "Carmel",
     state: "IN",
-    zip: "46280",
-    phone: "(317) 552-0505",
-    hours: "Monday – Friday: 7:30 AM – 4:00 PM",
+    zip: "46032",
+    phone: "(317) 555-0148",
+    hours: "Monday – Friday: 8:00 AM – 5:00 PM",
     mapUrl:
-      "https://maps.google.com/?q=3105+East+98th+Street+Suite+170+Indianapolis+IN+46280",
+      "https://maps.google.com/?q=8450+North+Bridge+Parkway+Suite+200+Carmel+IN+46032",
   },
   {
-    id: "crawfordsville",
-    name: "Crawfordsville Office",
-    address: "120 South Green Street",
-    city: "Crawfordsville",
+    id: "greenwood",
+    name: "Greenwood Office",
+    address: "1520 County Line Road, Suite 110",
+    city: "Greenwood",
     state: "IN",
-    zip: "47933",
-    phone: "(317) 860-1085",
-    hours: "Monday – Friday: 7:30 AM – 4:00 PM",
+    zip: "46143",
+    phone: "(317) 555-0163",
+    hours: "Monday – Friday: 8:00 AM – 5:00 PM",
     mapUrl:
-      "https://maps.google.com/?q=120+South+Green+Street+Crawfordsville+IN+47933",
+      "https://maps.google.com/?q=1520+County+Line+Road+Suite+110+Greenwood+IN+46143",
   },
 ];

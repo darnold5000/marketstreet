@@ -127,7 +127,7 @@ export default async function BlogPostPage({
 
       <CTABanner
         title="Have questions about your financial plan?"
-        description="Schedule a complimentary consultation with a Market Street advisor."
+        description="Schedule a complimentary consultation with a NorthBridge advisor."
       />
     </>
   );

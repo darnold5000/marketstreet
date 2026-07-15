@@ -13,9 +13,9 @@ export const aeoPages: AEOPage[] = [
   {
     slug: "what-is-a-fiduciary",
     title: "What Is a Fiduciary?",
-    seoTitle: "What Is a Fiduciary Financial Advisor? | Market Street Wealth Management",
+    seoTitle: "What Is a Fiduciary Financial Advisor? | NorthBridge Wealth",
     metaDescription:
-      "Learn what a fiduciary financial advisor is, why the fiduciary standard matters, and how Market Street's fee-only fiduciary approach protects your interests.",
+      "Learn what a fiduciary financial advisor is, why the fiduciary standard matters, and how NorthBridge's fee-only fiduciary approach protects your interests.",
     question: "What is a fiduciary?",
     relatedServices: ["wealth-management", "retirement-planning"],
     sections: [
@@ -32,12 +32,12 @@ export const aeoPages: AEOPage[] = [
       {
         heading: "How to Identify a Fiduciary Advisor",
         content:
-          "Registered investment advisers (RIAs) like Market Street Wealth Management are fiduciaries. You can verify an adviser's status on the SEC's Investment Adviser Public Disclosure website. Also ask directly: 'Are you a fiduciary?' and 'How are you compensated?' A true fiduciary who is also fee-only has no conflicts of interest.",
+          "Registered investment advisers (RIAs) like NorthBridge Wealth are fiduciaries. You can verify an adviser's status on the SEC's Investment Adviser Public Disclosure website. Also ask directly: 'Are you a fiduciary?' and 'How are you compensated?' A true fiduciary who is also fee-only has no conflicts of interest.",
       },
       {
-        heading: "Why Market Street Is Fiduciary and Fee-Only",
+        heading: "Why NorthBridge Is Fiduciary and Fee-Only",
         content:
-          "Market Street has been a fee-only, fiduciary firm since 2001. Our advisors are compensated exclusively by our clients — never through commissions or referral fees. This combination gives you the strongest possible protection: legal obligation to act in your interest, plus a compensation model with zero conflicts.",
+          "NorthBridge has been a fee-only, fiduciary firm since 2004. Our advisors are compensated exclusively by our clients — never through commissions or referral fees. This combination gives you the strongest possible protection: legal obligation to act in your interest, plus a compensation model with zero conflicts.",
       },
     ],
     faqs: [
@@ -56,9 +56,9 @@ export const aeoPages: AEOPage[] = [
   {
     slug: "how-does-fee-only-financial-planning-work",
     title: "How Does Fee-Only Financial Planning Work?",
-    seoTitle: "How Fee-Only Financial Planning Works | Market Street Wealth Management",
+    seoTitle: "How Fee-Only Financial Planning Works | NorthBridge Wealth",
     metaDescription:
-      "Understand how fee-only financial planning works, why it eliminates conflicts of interest, and how Market Street's transparent fee structure benefits clients.",
+      "Understand how fee-only financial planning works, why it eliminates conflicts of interest, and how NorthBridge's transparent fee structure benefits clients.",
     question: "How does fee-only financial planning work?",
     relatedServices: ["wealth-management", "investment-management"],
     sections: [
@@ -70,7 +70,7 @@ export const aeoPages: AEOPage[] = [
       {
         heading: "Typical Fee Structures",
         content:
-          "Fee-only advisors typically charge in one of three ways: a percentage of assets under management (most common for ongoing wealth management), a flat annual planning fee, or an hourly rate for specific projects. At Market Street, our fees are based on portfolio value and are fully disclosed before you become a client.",
+          "Fee-only advisors typically charge in one of three ways: a percentage of assets under management (most common for ongoing wealth management), a flat annual planning fee, or an hourly rate for specific projects. At NorthBridge, our fees are based on portfolio value and are fully disclosed before you become a client.",
       },
       {
         heading: "What You Get for Your Fee",
@@ -92,14 +92,14 @@ export const aeoPages: AEOPage[] = [
       {
         question: "How much does fee-only financial planning cost?",
         answer:
-          "Costs vary by firm and service level. Market Street's fees are transparent and based on portfolio value. Schedule a complimentary consultation for specific pricing.",
+          "Costs vary by firm and service level. NorthBridge's fees are transparent and based on portfolio value. Schedule a complimentary consultation for specific pricing.",
       },
     ],
   },
   {
     slug: "when-should-i-hire-a-financial-advisor",
     title: "When Should I Hire a Financial Advisor?",
-    seoTitle: "When Should You Hire a Financial Advisor? | Market Street Wealth Management",
+    seoTitle: "When Should You Hire a Financial Advisor? | NorthBridge Wealth",
     metaDescription:
       "Learn when to hire a financial advisor — from first job to retirement — and the life events that signal it's time for professional financial guidance.",
     question: "When should I hire a financial advisor?",
@@ -118,7 +118,7 @@ export const aeoPages: AEOPage[] = [
       {
         heading: "There's No Minimum Net Worth",
         content:
-          "Contrary to popular belief, you don't need millions to benefit from financial advice. Market Street's Foundations program serves young professionals building their financial foundation. Comprehensive wealth management typically begins around $500,000 in investable assets, but the right time depends more on complexity than account size.",
+          "Contrary to popular belief, you don't need millions to benefit from financial advice. NorthBridge's Foundations program serves young professionals building their financial foundation. Comprehensive wealth management typically begins around $500,000 in investable assets, but the right time depends more on complexity than account size.",
       },
       {
         heading: "The Cost of Waiting",
@@ -130,19 +130,19 @@ export const aeoPages: AEOPage[] = [
       {
         question: "How much money do I need to hire an advisor?",
         answer:
-          "It varies by firm. Market Street serves clients at multiple stages — from young professionals in our Foundations program to retirees with complex estate planning needs.",
+          "It varies by firm. NorthBridge serves clients at multiple stages — from young professionals in our Foundations program to retirees with complex estate planning needs.",
       },
       {
         question: "Can I hire an advisor for a one-time consultation?",
         answer:
-          "Yes. Market Street offers complimentary initial meetings with no obligation. This is a great way to get professional perspective on a specific question or life transition.",
+          "Yes. NorthBridge offers complimentary initial meetings with no obligation. This is a great way to get professional perspective on a specific question or life transition.",
       },
     ],
   },
   {
     slug: "should-i-roll-over-my-401k",
     title: "Should I Roll Over My 401(k)?",
-    seoTitle: "Should You Roll Over Your 401(k)? | Market Street Wealth Management",
+    seoTitle: "Should You Roll Over Your 401(k)? | NorthBridge Wealth",
     metaDescription:
       "Considering a 401(k) rollover? Learn the pros, cons, and key factors to evaluate before moving retirement funds from an employer plan.",
     question: "Should I roll over my 401(k)?",
@@ -166,7 +166,7 @@ export const aeoPages: AEOPage[] = [
       {
         heading: "Getting Professional Guidance",
         content:
-          "The rollover decision involves tax implications, investment strategy, fee comparisons, and estate planning considerations. A fee-only fiduciary advisor can analyze your specific situation and recommend the approach that maximizes your long-term wealth. Market Street integrates employer plan analysis into every comprehensive financial plan.",
+          "The rollover decision involves tax implications, investment strategy, fee comparisons, and estate planning considerations. A fee-only fiduciary advisor can analyze your specific situation and recommend the approach that maximizes your long-term wealth. NorthBridge integrates employer plan analysis into every comprehensive financial plan.",
       },
     ],
     faqs: [
@@ -185,9 +185,9 @@ export const aeoPages: AEOPage[] = [
   {
     slug: "how-much-should-i-save-for-retirement",
     title: "How Much Should I Save for Retirement?",
-    seoTitle: "How Much Should You Save for Retirement? | Market Street Wealth Management",
+    seoTitle: "How Much Should You Save for Retirement? | NorthBridge Wealth",
     metaDescription:
-      "Learn how much to save for retirement based on your age, income, and goals. Practical guidelines from Market Street's fee-only financial planners.",
+      "Learn how much to save for retirement based on your age, income, and goals. Practical guidelines from NorthBridge's fee-only financial planners.",
     question: "How much should I save for retirement?",
     relatedServices: ["retirement-planning", "wealth-management"],
     sections: [
@@ -209,7 +209,7 @@ export const aeoPages: AEOPage[] = [
       {
         heading: "Why a Personalized Plan Matters",
         content:
-          "Rules of thumb are starting points, not destinations. A comprehensive retirement plan models your specific income sources, tax situation, healthcare needs, and spending goals to calculate exactly how much you need — and whether you're on track. Market Street creates these projections for every client as part of our planning process.",
+          "Rules of thumb are starting points, not destinations. A comprehensive retirement plan models your specific income sources, tax situation, healthcare needs, and spending goals to calculate exactly how much you need — and whether you're on track. NorthBridge creates these projections for every client as part of our planning process.",
       },
     ],
     faqs: [
@@ -228,16 +228,16 @@ export const aeoPages: AEOPage[] = [
   {
     slug: "what-happens-during-the-first-consultation",
     title: "What Happens During the First Consultation?",
-    seoTitle: "What to Expect at Your First Financial Advisor Meeting | Market Street",
+    seoTitle: "What to Expect at Your First Financial Advisor Meeting | NorthBridge",
     metaDescription:
-      "Learn what happens during your first meeting with a Market Street financial advisor — a complimentary, no-obligation conversation designed to help you decide if we're the right fit.",
+      "Learn what happens during your first meeting with a NorthBridge financial advisor — a complimentary, no-obligation conversation designed to help you decide if we're the right fit.",
     question: "What happens during the first consultation?",
     relatedServices: ["wealth-management", "foundations", "retirement-planning"],
     sections: [
       {
         heading: "A No-Pressure Conversation",
         content:
-          "Your first meeting with Market Street is complimentary and carries zero obligation. This isn't a sales presentation — it's a genuine conversation designed to understand your financial situation, goals, and whether we'd be a good fit as your long-term financial partner.",
+          "Your first meeting with NorthBridge is complimentary and carries zero obligation. This isn't a sales presentation — it's a genuine conversation designed to understand your financial situation, goals, and whether we'd be a good fit as your long-term financial partner.",
       },
       {
         heading: "What We'll Discuss",
@@ -252,7 +252,7 @@ export const aeoPages: AEOPage[] = [
       {
         heading: "What Happens Next",
         content:
-          "If we both agree Market Street is a good match, we'll outline next steps for onboarding — including gathering detailed financial information and beginning your personalized plan. If we're not the right fit, we'll be honest about that too and help point you in a better direction. Either way, you'll leave with more clarity than when you arrived.",
+          "If we both agree NorthBridge is a good match, we'll outline next steps for onboarding — including gathering detailed financial information and beginning your personalized plan. If we're not the right fit, we'll be honest about that too and help point you in a better direction. Either way, you'll leave with more clarity than when you arrived.",
       },
     ],
     faqs: [

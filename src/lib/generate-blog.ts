@@ -37,7 +37,7 @@ function generateFAQs(draft: string): { question: string; answer: string }[] {
     return [
       {
         question: "Who wrote this article?",
-        answer: "This article was written by the advisors at Market Street Wealth Management, a fee-only fiduciary firm serving Indiana and clients nationwide.",
+        answer: "This article was written by the advisors at NorthBridge Wealth, a fee-only fiduciary firm serving Indiana and clients nationwide.",
       },
     ];
   }
@@ -49,7 +49,7 @@ function generateFAQs(draft: string): { question: string; answer: string }[] {
     {
       question: "Should I consult a financial advisor about this topic?",
       answer:
-        "Every financial situation is unique. We recommend scheduling a complimentary consultation with a Market Street advisor to discuss how this applies to your specific circumstances.",
+        "Every financial situation is unique. We recommend scheduling a complimentary consultation with a NorthBridge advisor to discuss how this applies to your specific circumstances.",
     },
   ];
 }
@@ -87,14 +87,14 @@ function buildSchema(post: Omit<GeneratedBlogPost, "schema">): Record<string, un
     datePublished: post.publishedAt,
     publisher: {
       "@type": "Organization",
-      name: "Market Street Wealth Management Advisors, LLC",
+      name: "NorthBridge Wealth Advisors, LLC",
     },
   };
 }
 
 export async function generateBlogPost(
   draft: string,
-  author = "Market Street Wealth Management"
+  author = "NorthBridge Wealth"
 ): Promise<GeneratedBlogPost> {
   const openaiKey = process.env.OPENAI_API_KEY;
 
@@ -111,7 +111,7 @@ export async function generateBlogPost(
           messages: [
             {
               role: "system",
-              content: `You are an SEO editor for Market Street Wealth Management, a fee-only fiduciary financial advisory firm in Indiana. 
+              content: `You are an SEO editor for NorthBridge Wealth, a fee-only fiduciary financial advisory firm in Indiana. 
 Return JSON with: title, seoTitle, metaDescription (max 160 chars), excerpt (max 300 chars), content (markdown with ## headings, 300-800 words, improved from draft), faqs (array of 2-3 {question, answer}).
 Keep the advisor's authentic voice. Do not invent facts not in the draft.`,
             },
@@ -129,7 +129,7 @@ Keep the advisor's authentic voice. Do not invent facts not in the draft.`,
         const post = {
           slug: slugify(title),
           title,
-          seoTitle: parsed.seoTitle ?? `${title} | Market Street Wealth Management`,
+          seoTitle: parsed.seoTitle ?? `${title} | NorthBridge Wealth`,
           metaDescription: parsed.metaDescription ?? content.slice(0, 160),
           excerpt: parsed.excerpt ?? content.slice(0, 300),
           author,
@@ -151,7 +151,7 @@ Keep the advisor's authentic voice. Do not invent facts not in the draft.`,
   const post = {
     slug: slugify(title),
     title,
-    seoTitle: `${title} | Market Street Wealth Management`,
+    seoTitle: `${title} | NorthBridge Wealth`,
     metaDescription: content.replace(/##.*\n/g, "").slice(0, 157) + "...",
     excerpt: content.replace(/##.*\n/g, "").slice(0, 297) + "...",
     author,

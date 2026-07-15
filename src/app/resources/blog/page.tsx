@@ -8,7 +8,7 @@ import { blogPosts } from "@/content/blog";
 export const metadata = createMetadata({
   title: "Blog",
   description:
-    "Financial planning insights, retirement strategies, and wealth management guidance from the advisors at Market Street Wealth Management.",
+    "Financial planning insights, retirement strategies, and wealth management guidance from the advisors at NorthBridge Wealth.",
   path: "/resources/blog",
 });
 
@@ -22,7 +22,7 @@ export default function BlogPage() {
     <>
       <JsonLd
         data={[
-          webPageSchema("Blog", "Financial planning insights from Market Street", "/resources/blog"),
+          webPageSchema("Blog", "Financial planning insights from NorthBridge", "/resources/blog"),
           breadcrumbSchema([
             { name: "Home", url: "/" },
             { name: "Resources", url: "/resources/blog" },

@@ -27,7 +27,7 @@ async function sendEmail(
   html: string
 ): Promise<boolean> {
   const apiKey = process.env.RESEND_API_KEY;
-  const from = process.env.EMAIL_FROM ?? "Market Street <noreply@mswma.com>";
+  const from = process.env.EMAIL_FROM ?? "NorthBridge <noreply@northbridgewealth.com>";
 
   if (!apiKey) return false;
 
@@ -85,7 +85,7 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const notifyEmail = process.env.CONTACT_EMAIL ?? "info@mswma.com";
+    const notifyEmail = process.env.CONTACT_EMAIL ?? "hello@northbridgewealth.com";
     const fullName = `${firstName} ${lastName}`;
 
     await sendEmail(
@@ -102,11 +102,11 @@ export async function POST(request: NextRequest) {
 
     await sendEmail(
       email,
-      "Thank you for contacting Market Street Wealth Management",
+      "Thank you for contacting NorthBridge Wealth",
       `<p>Dear ${firstName},</p>
-       <p>Thank you for reaching out to Market Street Wealth Management. A member of our team will be in touch shortly.</p>
-       <p>In the meantime, feel free to <a href="https://mswma.com/schedule">schedule a complimentary consultation</a> at your convenience.</p>
-       <p>Warm regards,<br/>Market Street Wealth Management</p>`
+       <p>Thank you for reaching out to NorthBridge Wealth. A member of our team will be in touch shortly.</p>
+       <p>In the meantime, feel free to <a href="https://northbridgewealth.com/schedule">schedule a complimentary consultation</a> at your convenience.</p>
+       <p>Warm regards,<br/>NorthBridge Wealth</p>`
     );
 
     console.log("Contact form submission:", {

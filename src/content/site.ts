@@ -1,19 +1,19 @@
 export const siteConfig = {
-  name: "Market Street Wealth Management",
-  legalName: "Market Street Wealth Management Advisors, LLC",
+  name: "NorthBridge Wealth",
+  legalName: "NorthBridge Wealth Advisors, LLC",
   tagline: "Fee-Only Fiduciary Financial Planning",
   description:
-    "Market Street Wealth Management delivers clear, actionable financial planning for young and seasoned professionals. Fee-only, fiduciary advisors serving Indiana and clients nationwide.",
-  url: "https://mswma.com",
-  foundedYear: 2001,
-  email: "info@mswma.com",
+    "NorthBridge Wealth delivers clear, actionable financial planning for young and seasoned professionals. Fee-only, fiduciary advisors serving Indiana and clients nationwide.",
+  url: "https://northbridgewealth.com",
+  foundedYear: 2004,
+  email: "hello@northbridgewealth.com",
   scheduleUrl: "/schedule",
   social: {
-    linkedin: "https://www.linkedin.com/company/market-street-wealth-management",
-    facebook: "https://www.facebook.com/mswma",
+    linkedin: "https://www.linkedin.com/company/northbridge-wealth",
+    facebook: "https://www.facebook.com/northbridgewealth",
   },
   trustIndicators: [
-    { label: "Years in Business", value: "25+" },
+    { label: "Years in Business", value: "20+" },
     { label: "Fee-Only", value: "Always" },
     { label: "Fiduciary", value: "100%" },
     { label: "Office Locations", value: "2" },

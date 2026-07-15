@@ -20,7 +20,7 @@ interface GeneratedPost {
 export default function ContentAssistantPage() {
   const [password, setPassword] = useState("");
   const [draft, setDraft] = useState("");
-  const [author, setAuthor] = useState("Market Street Wealth Management");
+  const [author, setAuthor] = useState("NorthBridge Wealth");
   const [generated, setGenerated] = useState<GeneratedPost | null>(null);
   const [status, setStatus] = useState<"idle" | "generating" | "publishing" | "done" | "error">("idle");
   const [error, setError] = useState("");

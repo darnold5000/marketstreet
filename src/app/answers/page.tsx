@@ -53,7 +53,7 @@ export default function AnswersIndexPage() {
           <Link href="/schedule" className="font-medium text-navy hover:text-gold">
             Schedule a free consultation
           </Link>{" "}
-          with a Market Street advisor.
+          with a NorthBridge advisor.
         </p>
       </Section>
     </>

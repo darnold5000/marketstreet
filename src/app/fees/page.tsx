@@ -9,7 +9,7 @@ import { wealthManagementFeeTiers, feesFaqs } from "@/content/fees";
 export const metadata = createMetadata({
   title: "Our Fees",
   description:
-    "Learn how Market Street Wealth Management charges for fee-only fiduciary financial planning and wealth management services, including AUM-based pricing and Foundations fees.",
+    "Learn how NorthBridge Wealth charges for fee-only fiduciary financial planning and wealth management services, including AUM-based pricing and Foundations fees.",
   path: "/fees",
 });
 
@@ -93,7 +93,7 @@ export default function FeesPage() {
               planning, investment management, or a combination of both.
             </p>
             <p>
-              At Market Street, these services fall under the umbrella of wealth management,
+              At NorthBridge, these services fall under the umbrella of wealth management,
               through which we provide personalized support for all of our clients, in every
               stage of life.
             </p>
@@ -177,7 +177,7 @@ export default function FeesPage() {
             </p>
             <p>
               After four years, you graduate into a traditional wealth management relationship
-              with Market Street. You can see the fees for wealth management above.
+              with NorthBridge. You can see the fees for wealth management above.
             </p>
           </div>
           <p className="mt-6">
@@ -229,7 +229,7 @@ export default function FeesPage() {
             Have more questions about our fees?
           </h2>
           <p className="mt-4 text-white/70">
-            Or about starting a relationship with Market Street? We&apos;d love to hear from you.
+            Or about starting a relationship with NorthBridge? We&apos;d love to hear from you.
           </p>
           <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <Button href="/schedule" variant="secondary" size="lg" trackEvent="fees_schedule">

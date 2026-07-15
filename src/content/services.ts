@@ -43,7 +43,7 @@ export const services: Service[] = [
       {
         question: "What is wealth management?",
         answer:
-          "Wealth management is a comprehensive approach to managing your financial life. It combines investment management, financial planning, tax strategy, and ongoing advisory support into one coordinated relationship. At Market Street, wealth management means a personalized plan that evolves with you — not a one-size-fits-all portfolio.",
+          "Wealth management is a comprehensive approach to managing your financial life. It combines investment management, financial planning, tax strategy, and ongoing advisory support into one coordinated relationship. At NorthBridge, wealth management means a personalized plan that evolves with you — not a one-size-fits-all portfolio.",
       },
       {
         question: "Who needs a financial advisor?",
@@ -58,7 +58,7 @@ export const services: Service[] = [
       {
         question: "What is a fiduciary?",
         answer:
-          "A fiduciary is a financial advisor legally obligated to act in your best interest at all times. Market Street advisors are fiduciaries, meaning we always put your financial well-being ahead of our own.",
+          "A fiduciary is a financial advisor legally obligated to act in your best interest at all times. NorthBridge advisors are fiduciaries, meaning we always put your financial well-being ahead of our own.",
       },
       {
         question: "How much money should I have before hiring an advisor?",
@@ -76,7 +76,7 @@ export const services: Service[] = [
     whatItIs:
       "Strategic planning for Social Security, healthcare, income, and the lifestyle you want in retirement.",
     description:
-      "Retirement planning at Market Street goes beyond saving — we help you optimize Social Security, navigate Medicare and healthcare costs, create sustainable income strategies, and plan for the lifestyle you envision.",
+      "Retirement planning at NorthBridge goes beyond saving — we help you optimize Social Security, navigate Medicare and healthcare costs, create sustainable income strategies, and plan for the lifestyle you envision.",
     whoItsFor: [
       "Pre-retirees within 10 years of retirement",
       "Recent retirees managing distributions",
@@ -103,7 +103,7 @@ export const services: Service[] = [
       {
         question: "What happens during the first meeting?",
         answer:
-          "Your first meeting is complimentary and low-pressure. We'll discuss your goals, current financial situation, and what you're looking for in an advisor. There's no obligation — just an honest conversation about whether Market Street is the right fit for you.",
+          "Your first meeting is complimentary and low-pressure. We'll discuss your goals, current financial situation, and what you're looking for in an advisor. There's no obligation — just an honest conversation about whether NorthBridge is the right fit for you.",
       },
     ],
   },
@@ -116,7 +116,7 @@ export const services: Service[] = [
     whatItIs:
       "Custom 401(k) and qualified plan design for business owners who want strong benefits without the complexity.",
     description:
-      "As a business owner, you're the expert in your business. At Market Street, we have expertise in business retirement plans. We work together to craft well-designed, customized plans that are part of a compelling benefits package for your team.",
+      "As a business owner, you're the expert in your business. At NorthBridge, we have expertise in business retirement plans. We work together to craft well-designed, customized plans that are part of a compelling benefits package for your team.",
     whoItsFor: [
       "Small business owners",
       "Growing companies adding benefits",
@@ -151,7 +151,7 @@ export const services: Service[] = [
     whatItIs:
       "Approachable financial planning for young professionals building their first real wealth strategy.",
     description:
-      "Are you an ambitious young professional with a big vision for your future? Market Street's Foundations program helps you forge the path to a strong financial future. Financial planning can be intimidating — that's why we keep it simple with a plan you can understand and trust.",
+      "Are you an ambitious young professional with a big vision for your future? NorthBridge's Foundations program helps you forge the path to a strong financial future. Financial planning can be intimidating — that's why we keep it simple with a plan you can understand and trust.",
     whoItsFor: [
       "Young professionals in their 20s and 30s",
       "Dual-income households getting started",
@@ -208,7 +208,7 @@ export const services: Service[] = [
       {
         question: "Do you receive commissions on investments?",
         answer:
-          "No. Market Street is a fee-only firm. We never receive commissions, referral fees, or compensation from any financial institution. Our only compensation comes directly from our clients.",
+          "No. NorthBridge is a fee-only firm. We never receive commissions, referral fees, or compensation from any financial institution. Our only compensation comes directly from our clients.",
       },
     ],
   },

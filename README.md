@@ -1,6 +1,6 @@
-# Market Street Wealth Management
+# NorthBridge Wealth
 
-Modern, premium website for [Market Street Wealth Management](https://mswma.com) — built with Next.js 15+, React, TypeScript, and Tailwind CSS.
+Modern, premium website for [NorthBridge Wealth](https://northbridgewealth.com) — built with Next.js 15+, React, TypeScript, and Tailwind CSS.
 
 ## Features
 
@@ -99,4 +99,4 @@ Target metrics:
 
 ## License
 
-Proprietary — Market Street Wealth Management Advisors, LLC
+Proprietary — NorthBridge Wealth Advisors, LLC

@@ -15,7 +15,7 @@ const trustPills: { icon: IconName; label: string }[] = [
   { icon: "dollar", label: "Fee-Only" },
   { icon: "shield", label: "Fiduciary" },
   { icon: "award", label: "CFP®" },
-  { icon: "calendar", label: "25+ Years" },
+  { icon: "calendar", label: "20+ Years" },
 ];
 
 const coreBenefits = [
@@ -41,7 +41,7 @@ export function Hero() {
     <section className="relative min-h-[88vh] overflow-hidden bg-navy">
       <Image
         src="/images/indy1.jpg"
-        alt="Indianapolis skyline at dusk — home of Market Street Wealth Management"
+        alt="Central Indiana skyline at dusk — home of NorthBridge Wealth"
         fill
         priority
         className="object-cover object-center brightness-105 contrast-105"
@@ -114,7 +114,7 @@ export function StoryStatement() {
     <Section className="py-24 md:py-32">
       <div className="mx-auto max-w-4xl text-center">
         <p className="text-sm font-semibold tracking-widest text-gold uppercase">
-          The Market Street Difference
+          The NorthBridge Difference
         </p>
         <h2 className="mt-4 font-display text-4xl leading-tight text-navy md:text-5xl lg:text-6xl">
           Financial planning shouldn&apos;t feel complicated.
@@ -134,7 +134,7 @@ export function StoryPhoto() {
         <div className="group overflow-hidden rounded-2xl border border-border bg-white shadow-sm">
           <Image
             src="/images/team-group.jpg"
-            alt="Market Street Wealth Management team in Indianapolis"
+            alt="NorthBridge Wealth advisors collaborating in Carmel"
             width={800}
             height={534}
             className="h-auto w-full"
@@ -164,7 +164,7 @@ export function CoreBenefits() {
       </div>
       <div className="mt-12 text-center">
         <Button href="/about" variant="outline">
-          Why Market Street
+          Why NorthBridge
         </Button>
       </div>
     </Section>

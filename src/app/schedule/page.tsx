@@ -11,7 +11,7 @@ const CALENDLY_URL = process.env.NEXT_PUBLIC_CALENDLY_URL ?? "";
 export const metadata = createMetadata({
   title: "Schedule a Consultation",
   description:
-    "Schedule a complimentary, no-obligation consultation with a Market Street Wealth Management advisor. Low-stress, personalized financial planning.",
+    "Schedule a complimentary, no-obligation consultation with a NorthBridge Wealth advisor. Low-stress, personalized financial planning.",
   path: "/schedule",
 });
 
@@ -22,7 +22,7 @@ export default function SchedulePage() {
         data={[
           webPageSchema(
             "Schedule a Consultation",
-            "Schedule a complimentary consultation with Market Street",
+            "Schedule a complimentary consultation with NorthBridge",
             "/schedule"
           ),
           faqSchema([
@@ -66,11 +66,11 @@ export default function SchedulePage() {
               Contact Us to Schedule
             </a>
             <a
-              href="tel:3175520505"
+              href="tel:3175550148"
               className="rounded-full border-2 border-navy px-7 py-3.5 text-center text-sm font-semibold text-navy hover:bg-navy hover:text-white"
               data-track="schedule_phone"
             >
-              Call (317) 552-0505
+              Call (317) 555-0148
             </a>
           </div>
         )}

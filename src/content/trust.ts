@@ -19,8 +19,8 @@ export const trustBadges = [
   },
   {
     id: "experience",
-    label: "25+ Years",
-    description: "Serving Indiana families since 2001",
+    label: "20+ Years",
+    description: "Serving Indiana families since 2004",
     icon: "/images/badges/trust.png",
   },
 ];
@@ -59,7 +59,7 @@ export const firstMeetingSteps = [
     title: "How We Can Help",
     duration: "10 minutes",
     description:
-      "We'll explain our fee-only, fiduciary approach and how Market Street's services align with your needs. No sales pitch — just honest guidance.",
+      "We'll explain our fee-only, fiduciary approach and how NorthBridge's services align with your needs. No sales pitch — just honest guidance.",
   },
   {
     step: 5,
@@ -73,7 +73,7 @@ export const firstMeetingSteps = [
 export const fiduciaryExplanation = {
   title: "What Is a Fiduciary Financial Advisor?",
   summary:
-    "A fiduciary is legally required to put your interests first — always. At Market Street, every recommendation we make is guided by what's best for you, not what's best for us.",
+    "A fiduciary is legally required to put your interests first — always. At NorthBridge, every recommendation we make is guided by what's best for you, not what's best for us.",
   sections: [
     {
       heading: "The Fiduciary Standard",
@@ -86,9 +86,9 @@ export const fiduciaryExplanation = {
         "Not all financial professionals are fiduciaries. Some operate under a 'suitability' standard, which only requires recommendations to be suitable — not necessarily optimal — for your situation. This distinction can cost you thousands over a lifetime through unnecessary fees, suboptimal products, and conflicts of interest.",
     },
     {
-      heading: "Market Street's Commitment",
+      heading: "NorthBridge's Commitment",
       content:
-        "As a registered investment adviser, Market Street Wealth Management is held to the fiduciary standard. Combined with our fee-only compensation model, you can trust that every piece of advice we provide is designed solely to help you achieve your financial goals.",
+        "As a registered investment adviser, NorthBridge Wealth is held to the fiduciary standard. Combined with our fee-only compensation model, you can trust that every piece of advice we provide is designed solely to help you achieve your financial goals.",
     },
   ],
   faqs: [
@@ -121,9 +121,9 @@ export const feeOnlyExplanation = {
         "Don't confuse 'fee-only' with 'fee-based.' Fee-based advisors charge client fees but may also accept commissions on product sales. Fee-only advisors never accept commissions. This is a critical distinction that directly impacts the quality and objectivity of the advice you receive.",
     },
     {
-      heading: "Market Street's Transparent Fees",
+      heading: "NorthBridge's Transparent Fees",
       content:
-        "Our fee structure is clear and simple, based on your portfolio value as a Market Street client. Since we're paid exclusively by you, you can know with confidence that we're on your team. Our advisors don't receive payment from any financial institutions or third parties, so we'll never sell you a service or product you don't need.",
+        "Our fee structure is clear and simple, based on your portfolio value as a NorthBridge client. Since we're paid exclusively by you, you can know with confidence that we're on your team. Our advisors don't receive payment from any financial institutions or third parties, so we'll never sell you a service or product you don't need.",
     },
   ],
   faqs: [

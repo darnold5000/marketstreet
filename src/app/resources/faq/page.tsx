@@ -7,7 +7,7 @@ import { faqItems, getFAQsByCategory } from "@/content/faq";
 export const metadata = createMetadata({
   title: "Frequently Asked Questions",
   description:
-    "Answers to common questions about fee-only financial planning, fiduciary advisors, Market Street services, and how to get started.",
+    "Answers to common questions about fee-only financial planning, fiduciary advisors, NorthBridge services, and how to get started.",
   path: "/resources/faq",
 });
 
@@ -18,7 +18,7 @@ export default function FAQPage() {
     <>
       <JsonLd
         data={[
-          webPageSchema("FAQ", "Frequently asked questions about Market Street", "/resources/faq"),
+          webPageSchema("FAQ", "Frequently asked questions about NorthBridge", "/resources/faq"),
           faqSchema(faqItems),
           breadcrumbSchema([
             { name: "Home", url: "/" },
@@ -38,7 +38,7 @@ export default function FAQPage() {
         <SectionHeader
           eyebrow="Resources"
           title="Frequently Asked Questions"
-          description="Clear answers to the questions we hear most often about financial planning, our services, and how to get started with Market Street."
+          description="Clear answers to the questions we hear most often about financial planning, our services, and how to get started with NorthBridge."
         />
 
         <div className="space-y-12">

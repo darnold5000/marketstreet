@@ -7,7 +7,7 @@ import { locations } from "@/content/locations";
 export const metadata = createMetadata({
   title: "Office Locations",
   description:
-    "Visit Market Street Wealth Management in Indianapolis or Crawfordsville, Indiana. We also serve clients nationwide through virtual meetings.",
+    "Visit NorthBridge Wealth in Carmel or Greenwood, Indiana. We also serve clients nationwide through virtual meetings.",
   path: "/locations",
 });
 
@@ -18,7 +18,7 @@ export default function LocationsPage() {
         data={[
           webPageSchema(
             "Office Locations",
-            "Market Street Wealth Management office locations",
+            "NorthBridge Wealth office locations",
             "/locations"
           ),
           ...localBusinessSchema(),
@@ -34,7 +34,7 @@ export default function LocationsPage() {
         <SectionHeader
           eyebrow="Our Offices"
           title="Local offices, nationwide reach"
-          description="Visit us in person at our Indianapolis or Crawfordsville offices, or connect with us virtually from anywhere in the country."
+          description="Visit us in person at our Carmel or Greenwood offices, or connect with us virtually from anywhere in the country."
           centered
         />
 

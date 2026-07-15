@@ -59,7 +59,7 @@ interface AdvisorCardProps {
 }
 
 export function AdvisorCard({ member, showBio = true }: AdvisorCardProps) {
-  const yearsAtMS = new Date().getFullYear() - parseInt(member.marketStreetSince);
+  const yearsAtMS = new Date().getFullYear() - parseInt(member.withFirmSince);
   const yearsIndustry = new Date().getFullYear() - parseInt(member.industrySince);
 
   return (
@@ -73,7 +73,7 @@ export function AdvisorCard({ member, showBio = true }: AdvisorCardProps) {
           </h3>
           <p className="text-sm text-muted">{member.title}</p>
           <div className="mt-2 flex flex-wrap gap-3 text-xs text-muted">
-            <span>{yearsAtMS}+ years at Market Street</span>
+            <span>{yearsAtMS}+ years at NorthBridge</span>
             <span aria-hidden="true">·</span>
             <span>{yearsIndustry}+ years in industry</span>
           </div>

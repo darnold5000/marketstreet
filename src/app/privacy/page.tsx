@@ -15,7 +15,7 @@ export default function PrivacyPage() {
     <>
       <JsonLd
         data={[
-          webPageSchema("Privacy Policy", "Market Street Privacy Policy", "/privacy"),
+          webPageSchema("Privacy Policy", "NorthBridge Privacy Policy", "/privacy"),
           breadcrumbSchema([
             { name: "Home", url: "/" },
             { name: "Privacy Policy", url: "/privacy" },
@@ -33,7 +33,7 @@ export default function PrivacyPage() {
 
           <h2>Introduction</h2>
           <p>
-            {siteConfig.legalName} (&quot;Market Street,&quot; &quot;we,&quot; &quot;us,&quot; or
+            {siteConfig.legalName} (&quot;NorthBridge,&quot; &quot;we,&quot; &quot;us,&quot; or
             &quot;our&quot;) is committed to protecting your privacy. This Privacy Policy
             explains how we collect, use, disclose, and safeguard your information when
             you visit our website or use our services.

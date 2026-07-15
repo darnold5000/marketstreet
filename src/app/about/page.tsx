@@ -6,7 +6,7 @@ import { breadcrumbSchema, webPageSchema } from "@/lib/schema";
 export const metadata = createMetadata({
   title: "About Us",
   description:
-    "Learn about Market Street Wealth Management — a fee-only, fiduciary financial planning firm founded in 2001, serving Indiana and clients nationwide.",
+    "Learn about NorthBridge Wealth — a fee-only, fiduciary financial planning firm founded in 2004, serving Indiana and clients nationwide.",
   path: "/about",
 });
 
@@ -45,7 +45,7 @@ export default function AboutPage() {
         data={[
           webPageSchema(
             "About Us",
-            "Learn about Market Street Wealth Management",
+            "Learn about NorthBridge Wealth",
             "/about"
           ),
           breadcrumbSchema([
@@ -67,11 +67,11 @@ export default function AboutPage() {
             an abstract recommendation, unanswered questions, and limited guidance.
             You deserve an advisor who values you for more than your portfolio, and
             financial security that&apos;s backed by a clear plan, advice, and ongoing
-            support. That&apos;s why Market Street operates differently.
+            support. That&apos;s why NorthBridge operates differently.
           </p>
           <h2>Our Mission: Your Peace of Mind</h2>
           <p>
-            At Market Street, we put you first. Our mission is simple: to empower you
+            At NorthBridge, we put you first. Our mission is simple: to empower you
             with clear financial direction designed around your life, so you can achieve
             peace of mind. At the foundation of our holistic approach is a true
             appreciation for you, your family, and your unique financial situation.
@@ -79,7 +79,7 @@ export default function AboutPage() {
           <p>
             Maybe you&apos;ve wondered if you can have it all: financial freedom today,
             confidence in your future, and a financial partner you can trust. With
-            Market Street, you can.
+            NorthBridge, you can.
           </p>
         </div>
       </Section>
@@ -116,7 +116,7 @@ export default function AboutPage() {
       <Section background="cream">
         <SectionHeader
           eyebrow="What to Expect"
-          title="Your first meeting with Market Street"
+          title="Your first meeting with NorthBridge"
           description="A complimentary, no-obligation conversation designed to help you decide if we're the right fit."
           centered
         />
@@ -150,7 +150,7 @@ export default function AboutPage() {
 
       <CTABanner
         title="Find Your Match Today"
-        description="Schedule a complimentary consultation to discover how Market Street can help you achieve your financial goals."
+        description="Schedule a complimentary consultation to discover how NorthBridge can help you achieve your financial goals."
       />
     </>
   );

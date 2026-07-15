@@ -8,7 +8,7 @@ import { locations } from "@/content/locations";
 export const metadata = createMetadata({
   title: "Contact Us",
   description:
-    "Contact Market Street Wealth Management. Reach our Indianapolis or Crawfordsville offices, or send us a message online.",
+    "Contact NorthBridge Wealth. Reach our Carmel or Greenwood offices, or send us a message online.",
   path: "/contact",
 });
 
@@ -17,7 +17,7 @@ export default function ContactPage() {
     <>
       <JsonLd
         data={[
-          webPageSchema("Contact Us", "Contact Market Street Wealth Management", "/contact"),
+          webPageSchema("Contact Us", "Contact NorthBridge Wealth", "/contact"),
           breadcrumbSchema([
             { name: "Home", url: "/" },
             { name: "Contact", url: "/contact" },
@@ -29,7 +29,7 @@ export default function ContactPage() {
         <Breadcrumbs items={[{ label: "Contact" }]} />
         <SectionHeader
           eyebrow="Get In Touch"
-          title="Contact Market Street today"
+          title="Contact NorthBridge today"
           description="Whether you're ready to become a client or just have a question, we'd love to hear from you."
         />
 
