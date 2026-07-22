@@ -144,6 +144,11 @@ export function Footer() {
                   FAQ
                 </Link>
               </li>
+              <li>
+                <Link href="/login" className="text-sm text-white/70 hover:text-white">
+                  Staff Login
+                </Link>
+              </li>
             </ul>
           </div>
         </div>
@@ -152,13 +157,30 @@ export function Footer() {
           <p className="text-sm text-white/50">
             &copy; {currentYear} {siteConfig.legalName}. All rights reserved.
           </p>
-          <div className="flex gap-6">
+          <div className="flex flex-wrap items-center justify-center gap-6">
             <Link href="/privacy" className="text-sm text-white/50 hover:text-white">
               Privacy Policy
             </Link>
             <Link href="/disclosures" className="text-sm text-white/50 hover:text-white">
               Disclosures
             </Link>
+            <a
+              href="https://hiresignalworks.com"
+              target="_blank"
+              rel="noreferrer"
+              title="Professional websites, software & AI solutions."
+              className="inline-flex items-center gap-2 text-sm text-white/50 transition-colors hover:text-white"
+            >
+              <span>Powered by the</span>
+              <Image
+                src="/signal-works-icon.png"
+                alt=""
+                width={20}
+                height={20}
+                className="h-5 w-5 rounded"
+              />
+              <span className="font-medium text-white/80">Signal Works Platform</span>
+            </a>
           </div>
         </div>
       </div>
