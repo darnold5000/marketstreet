@@ -4,7 +4,7 @@ import { AdvisorCard } from "@/components/team/TeamPhoto";
 import { AssociationBadges } from "@/components/trust";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { breadcrumbSchema, personSchema, webPageSchema } from "@/lib/schema";
-import { teamMembers } from "@/content/team";
+import { resolveTeamForPublic } from "@/lib/content/public";
 
 export const metadata = createMetadata({
   title: "Meet the Team",
@@ -13,9 +13,11 @@ export const metadata = createMetadata({
   path: "/team",
 });
 
-export default function TeamPage() {
+export default async function TeamPage() {
+  const teamMembers = await resolveTeamForPublic();
   const advisors = teamMembers.filter((m) => m.role === "advisor");
   const support = teamMembers.filter((m) => m.role !== "advisor");
+  const hasSupport = support.length > 0;
 
   return (
     <>
@@ -24,7 +26,7 @@ export default function TeamPage() {
           webPageSchema(
             "Meet the Team",
             "Meet the Market Street Wealth Management team",
-            "/team"
+            "/team",
           ),
           breadcrumbSchema([
             { name: "Home", url: "/" },
@@ -42,21 +44,27 @@ export default function TeamPage() {
           description="At Market Street, we believe we've found the ideal balance of professionalism and personality. We understand money is personal, and true wealth is so much more than just money."
         />
 
-        <h3 className="mb-8 font-serif text-2xl text-navy">Financial Advisors</h3>
+        <h3 className="mb-8 font-serif text-2xl text-navy">
+          {hasSupport ? "Financial Advisors" : "Our Team"}
+        </h3>
         <div className="grid gap-8 md:grid-cols-2">
-          {advisors.map((member) => (
+          {(hasSupport ? advisors : teamMembers).map((member) => (
             <AdvisorCard key={member.slug} member={member} />
           ))}
         </div>
 
-        <h3 className="mt-16 mb-8 font-serif text-2xl text-navy">
-          Operations & Support Team
-        </h3>
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {support.map((member) => (
-            <AdvisorCard key={member.slug} member={member} showBio={true} />
-          ))}
-        </div>
+        {hasSupport ? (
+          <>
+            <h3 className="mt-16 mb-8 font-serif text-2xl text-navy">
+              Operations & Support Team
+            </h3>
+            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+              {support.map((member) => (
+                <AdvisorCard key={member.slug} member={member} showBio={true} />
+              ))}
+            </div>
+          </>
+        ) : null}
 
         <div className="mt-16">
           <h3 className="mb-6 text-center font-serif text-2xl text-navy">

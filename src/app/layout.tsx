@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Instrument_Serif, Inter } from "next/font/google";
-import { Header, Footer } from "@/components/layout/HeaderFooter";
+import { SiteChrome } from "@/components/layout/SiteChrome";
 import { Analytics } from "@/components/analytics/Analytics";
 import { Analytics as VercelAnalytics } from "@vercel/analytics/next";
 import { JsonLd } from "@/components/seo/JsonLd";
@@ -42,9 +42,7 @@ export default function RootLayout({
         <JsonLd data={[organizationSchema(), ...localBusinessSchema()]} />
       </head>
       <body className="flex min-h-full flex-col font-sans">
-        <Header />
-        <main className="flex-1">{children}</main>
-        <Footer />
+        <SiteChrome>{children}</SiteChrome>
         <Analytics />
         <VercelAnalytics />
       </body>

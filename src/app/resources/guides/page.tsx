@@ -4,6 +4,7 @@ import { Section, SectionHeader, Card, Breadcrumbs } from "@/components/ui";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { breadcrumbSchema, webPageSchema } from "@/lib/schema";
 import { services } from "@/content/services";
+import { getPublishedArticles } from "@/lib/content/public";
 
 export const metadata = createMetadata({
   title: "Educational Guides",
@@ -12,33 +13,48 @@ export const metadata = createMetadata({
   path: "/resources/guides",
 });
 
-const guides = [
+const staticGuides = [
   {
     title: "What Is Fee-Only Financial Planning?",
     description:
       "Understand the difference between fee-only and commission-based advisors, and why it matters for your financial future.",
     href: "/resources/blog/understanding-fee-only-financial-planning",
+    external: false,
   },
   {
     title: "Pre-Retirement Planning Checklist",
     description:
       "A step-by-step guide covering Social Security, Medicare, portfolio transitions, and income strategies.",
     href: "/resources/blog/retirement-planning-checklist",
+    external: false,
   },
   {
     title: "Financial Planning for Young Professionals",
     description:
       "Why starting early matters and how Market Street's Foundations program helps build lasting wealth.",
     href: "/resources/blog/foundations-program-young-professionals",
+    external: false,
   },
   ...services.map((s) => ({
     title: s.title,
     description: s.shortDescription,
     href: `/services/${s.slug}`,
+    external: false,
   })),
 ];
 
-export default function GuidesPage() {
+export default async function GuidesPage() {
+  const articles = await getPublishedArticles();
+  const cmsGuides = articles.map((a) => ({
+    title: a.title,
+    description: a.summary || a.category,
+    href: a.document_url || `#${a.slug || a.id}`,
+    external: Boolean(a.document_url),
+    category: a.category,
+  }));
+
+  const guides = [...cmsGuides, ...staticGuides];
+
   return (
     <>
       <JsonLd
@@ -46,7 +62,7 @@ export default function GuidesPage() {
           webPageSchema(
             "Educational Guides",
             "Educational guides from Market Street Wealth Management",
-            "/resources/guides"
+            "/resources/guides",
           ),
           breadcrumbSchema([
             { name: "Home", url: "/" },
@@ -70,29 +86,64 @@ export default function GuidesPage() {
         />
 
         <div className="grid gap-6 md:grid-cols-2">
-          {guides.map((guide) => (
-            <Card key={guide.href} href={guide.href}>
-              <h2 className="font-serif text-xl text-navy">{guide.title}</h2>
-              <p className="mt-3 text-sm leading-relaxed text-muted">
-                {guide.description}
-              </p>
-              <span className="mt-4 inline-flex items-center text-sm font-semibold text-gold">
-                Read guide
-                <svg className="ml-1 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                </svg>
-              </span>
-            </Card>
-          ))}
+          {guides.map((guide) =>
+            guide.external ? (
+              <a
+                key={guide.href + guide.title}
+                href={guide.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block rounded-2xl border border-border bg-white p-6 shadow-sm transition hover:border-gold/40"
+              >
+                <h2 className="font-serif text-xl text-navy">{guide.title}</h2>
+                <p className="mt-3 text-sm leading-relaxed text-muted">
+                  {guide.description}
+                </p>
+                <span className="mt-4 inline-flex items-center text-sm font-semibold text-gold">
+                  Download
+                </span>
+              </a>
+            ) : (
+              <Card key={guide.href} href={guide.href}>
+                <h2 className="font-serif text-xl text-navy">{guide.title}</h2>
+                <p className="mt-3 text-sm leading-relaxed text-muted">
+                  {guide.description}
+                </p>
+                <span className="mt-4 inline-flex items-center text-sm font-semibold text-gold">
+                  Read guide
+                  <svg
+                    className="ml-1 h-4 w-4"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    aria-hidden="true"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M9 5l7 7-7 7"
+                    />
+                  </svg>
+                </span>
+              </Card>
+            ),
+          )}
         </div>
 
         <p className="mt-12 text-center text-muted">
           Looking for more? Visit our{" "}
-          <Link href="/resources/blog" className="font-medium text-navy hover:text-gold">
+          <Link
+            href="/resources/blog"
+            className="font-medium text-navy hover:text-gold"
+          >
             blog
           </Link>{" "}
           or{" "}
-          <Link href="/resources/faq" className="font-medium text-navy hover:text-gold">
+          <Link
+            href="/resources/faq"
+            className="font-medium text-navy hover:text-gold"
+          >
             FAQ
           </Link>
           .

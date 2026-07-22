@@ -1,0 +1,18 @@
+-- Bootstrap the first administrator after creating the Auth user in Supabase.
+-- 1. Dashboard → Authentication → Users → Add user (email + password)
+-- 2. Copy the user's UUID
+-- 3. Run this with the UUID and email filled in:
+
+-- insert into public.ms_profiles (id, email, full_name, role, active)
+-- values (
+--   '00000000-0000-0000-0000-000000000000', -- auth.users.id
+--   'admin@northbridgewealth.com',
+--   'Site Administrator',
+--   'administrator',
+--   true
+-- )
+-- on conflict (id) do update
+--   set role = excluded.role,
+--       active = true,
+--       full_name = excluded.full_name,
+--       email = excluded.email;
