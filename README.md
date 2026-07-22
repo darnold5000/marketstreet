@@ -34,11 +34,44 @@ cp .env.example .env.local
 |---|---|
 | `NEXT_PUBLIC_GA_ID` | Google Analytics measurement ID |
 | `NEXT_PUBLIC_CLARITY_ID` | Microsoft Clarity project ID |
-| `NEXT_PUBLIC_SITE_URL` | Production site URL for SEO |
+| `NEXT_PUBLIC_SITE_URL` | Production site URL for SEO + auth redirects |
+| `NEXT_PUBLIC_SUPABASE_URL` | Supabase project URL |
+| `NEXT_PUBLIC_SUPABASE_ANON_KEY` | Supabase anon key |
+| `SUPABASE_SERVICE_ROLE_KEY` | Service role key (server-only; user invites) |
 
 ## Content Management
 
-All content lives in `src/content/`:
+### Public site (static fallback)
+
+Content in `src/content/` still powers the marketing site when Supabase has no published CMS rows.
+
+### Content admin portal (`/admin`)
+
+Secure portal for public-website content only (team, articles/documents, pages, media, settings).
+
+| Route | Purpose |
+|---|---|
+| `/login` | Staff email/password login (no public registration) |
+| `/admin` | Dashboard |
+| `/admin/team` | Team member profiles + photos |
+| `/admin/articles` | Document uploads (PDF/DOCX) + featured images |
+| `/admin/pages` | Structured homepage / about / contact / footer / office |
+| `/admin/media` | Media library (`team/`, `articles/`, `pages/`, `branding/`) |
+| `/admin/settings` | Office info, logo, social links (administrators) |
+| `/admin/activity` | Activity log (administrators) |
+| `/admin/users` | Invite editors/admins (administrators) |
+| `/admin/content` | Legacy AI blog assistant (password-gated) |
+
+**Setup**
+
+1. Create a Supabase project and apply `supabase/migrations/001_admin_portal.sql`
+2. Set `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_ANON_KEY`, and `SUPABASE_SERVICE_ROLE_KEY`
+3. Create the first Auth user, then run `supabase/seed_first_admin.sql` with that user's UUID
+4. Sign in at `/login`
+
+Roles: **Administrator** (full access + publish + users + settings) and **Editor** (edit/upload/drafts).
+
+All content lives in `src/content/` as fallback:
 
 | File | What to edit |
 |---|---|

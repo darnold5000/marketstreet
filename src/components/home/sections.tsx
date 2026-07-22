@@ -36,14 +36,34 @@ const coreBenefits = [
   },
 ];
 
-export function Hero() {
+export function Hero({
+  headline = "Wealth management built on trust.",
+  intro = "Serving Indiana families with fee-only fiduciary advice for more than 25 years.",
+  ctaLabel = "Schedule Free Consultation",
+  ctaHref = "/schedule",
+  secondaryLabel,
+  secondaryHref,
+  heroImageUrl,
+}: {
+  headline?: string;
+  intro?: string;
+  ctaLabel?: string;
+  ctaHref?: string;
+  secondaryLabel?: string;
+  secondaryHref?: string;
+  heroImageUrl?: string;
+} = {}) {
+  const imageSrc = heroImageUrl || "/images/indy1.jpg";
+  const isRemote = imageSrc.startsWith("http");
+
   return (
     <section className="relative min-h-[88vh] overflow-hidden bg-navy">
       <Image
-        src="/images/indy1.jpg"
+        src={imageSrc}
         alt="Central Indiana skyline at dusk — home of NorthBridge Wealth"
         fill
         priority
+        unoptimized={isRemote}
         className="object-cover object-center brightness-105 contrast-105"
         sizes="100vw"
       />
@@ -62,18 +82,28 @@ export function Hero() {
             ))}
           </div>
           <h1 className="animate-hero-headline-delay font-display text-5xl leading-[1.05] text-white md:text-6xl lg:text-7xl">
-            Wealth management built on trust.
+            {headline}
           </h1>
           <p className="animate-hero-headline-delay mt-5 max-w-xl text-lg text-white/85 md:text-xl">
-            Serving Indiana families with fee-only fiduciary advice for more than 25 years.
+            {intro}
           </p>
           <p className="animate-hero-headline-delay-2 mt-3 text-sm text-white/60">
             No commissions. Always fiduciaries. Real advisors you can meet in person.
           </p>
-          <div className="animate-hero-headline-delay-2 mt-10">
-            <Button href="/schedule" variant="secondary" size="lg" trackEvent="hero_schedule">
-              Schedule Free Consultation
+          <div className="animate-hero-headline-delay-2 mt-10 flex flex-wrap gap-4">
+            <Button href={ctaHref} variant="secondary" size="lg" trackEvent="hero_schedule">
+              {ctaLabel}
             </Button>
+            {secondaryLabel && secondaryHref ? (
+              <Button
+                href={secondaryHref}
+                variant="outline"
+                size="lg"
+                className="border-white/70 text-white hover:bg-white hover:text-navy"
+              >
+                {secondaryLabel}
+              </Button>
+            ) : null}
           </div>
         </div>
       </div>
