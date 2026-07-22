@@ -6,7 +6,7 @@
 -- insert into public.ms_profiles (id, email, full_name, role, active)
 -- values (
 --   '00000000-0000-0000-0000-000000000000', -- auth.users.id
---   'admin@northbridgewealth.com',
+--   'admin@mswma.com',
 --   'Site Administrator',
 --   'administrator',
 --   true

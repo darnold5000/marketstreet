@@ -9,6 +9,7 @@ import type {
   TeamMemberRow,
 } from "@/lib/admin/types";
 import { MS_TABLES } from "@/lib/supabase/tables";
+import type { TeamMember } from "@/content/team";
 import { teamMembers as staticTeam } from "@/content/team";
 import { siteConfig } from "@/content/site";
 
@@ -127,7 +128,7 @@ export async function getHomepageContent(): Promise<HomepageContent> {
 }
 
 /** Prefer CMS team when present; otherwise fall back to static content. */
-export async function resolveTeamForPublic() {
+export async function resolveTeamForPublic(): Promise<TeamMember[]> {
   const fromDb = await getPublishedTeamMembers();
   if (fromDb.length > 0) {
     return fromDb.map((m) => ({
@@ -139,7 +140,9 @@ export async function resolveTeamForPublic() {
       specialties: m.areas_of_focus,
       bio: m.full_bio || m.short_bio,
       photo: m.photo_url || undefined,
-      withFirmSince: "",
+      marketStreetSince: m.years_experience
+        ? String(new Date().getFullYear() - m.years_experience)
+        : "",
       industrySince: m.years_experience
         ? String(new Date().getFullYear() - m.years_experience)
         : "",
