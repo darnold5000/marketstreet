@@ -480,7 +480,11 @@ export async function inviteUser(formData: FormData) {
 
   const { data, error } = await service.auth.admin.inviteUserByEmail(email, {
     redirectTo: `${siteUrl}/auth/callback?next=/admin`,
-    data: { full_name: fullName, role },
+    data: {
+      full_name: fullName,
+      ms_role: role,
+      ms_active: "true",
+    },
   });
   if (error) throw new Error(error.message);
 

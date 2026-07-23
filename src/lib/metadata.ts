@@ -14,7 +14,7 @@ export function createMetadata({
   description,
   path,
   ogImage = "/og-default.jpg",
-  noIndex = false,
+  noIndex = true,
 }: PageMetadataOptions): Metadata {
   const url = `${siteConfig.url}${path}`;
   const fullTitle =
